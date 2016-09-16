@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.jybx.me/hexo.html</loc>
+    
+    <lastmod>2016-09-16T07:16:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.jybx.me/tags/index.html</loc>
     
     <lastmod>2016-09-16T06:17:16.000Z</lastmod>
@@ -9,16 +16,30 @@
   </url>
   
   <url>
-    <loc>http://blog.jybx.me/hello-world.html</loc>
+    <loc>http://blog.jybx.me/guestbook/index.html</loc>
     
-    <lastmod>2016-09-16T06:07:39.000Z</lastmod>
+    <lastmod>2016-09-16T02:39:16.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.jybx.me/guestbook/index.html</loc>
+    <loc>http://blog.jybx.me/sunzibingfa.html</loc>
     
-    <lastmod>2016-09-16T02:39:16.000Z</lastmod>
+    <lastmod>2016-09-14T15:30:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/Mac-Terminal-zsh.html</loc>
+    
+    <lastmod>2016-09-14T15:12:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/npm.html</loc>
+    
+    <lastmod>2016-09-14T15:04:41.000Z</lastmod>
     
   </url>
   

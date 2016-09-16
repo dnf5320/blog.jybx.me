@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.jybx.me/"/>
-  <updated>2016-09-16T06:07:39.000Z</updated>
+  <updated>2016-09-14T15:04:41.000Z</updated>
   <id>http://blog.jybx.me/</id>
   
   <author>
@@ -16,29 +16,307 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://blog.jybx.me/hello-world.html"/>
-    <id>http://blog.jybx.me/hello-world.html</id>
-    <published>2016-09-16T06:07:39.000Z</published>
-    <updated>2016-09-16T06:07:39.000Z</updated>
+    <title>npm javascript 包管理</title>
+    <link href="http://blog.jybx.me/npm.html"/>
+    <id>http://blog.jybx.me/npm.html</id>
+    <published>2016-09-11T13:57:01.000Z</published>
+    <updated>2016-09-14T15:04:41.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<h1 id="npm-javascript-包管理"><a href="#npm-javascript-包管理" class="headerlink" title="npm javascript 包管理"></a>npm javascript 包管理</h1><h2 id="node-包管理器"><a href="#node-包管理器" class="headerlink" title="node 包管理器"></a>node 包管理器</h2><blockquote>
+<p>Node 包管理器（Node Package Manager）。它是一个以 javascript 编写的软件包管理系统，默认环境为 Node.js，从Node.js0.6.3 版本开始，npm 被自动附带在安装包中。<br>npm 运行在命令行下，并用于管理相依性包，npm 也允许用户安装在 npm registry 上的 Node.js 应用程序。<br>npm 由 Isaac Z. Schlueter 开发，为了匹配 CommonJS 的规范，如 PHP 之于 (PEAR)、Perl 之于 (CPAN)，进而开发出 npm。</p>
+</blockquote>
+<h2 id="Node-js-安装配置"><a href="#Node-js-安装配置" class="headerlink" title="Node.js 安装配置"></a>Node.js 安装配置</h2><p>Node.js 安装包及源码下载地址为：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<p>显示 node 安装的版本号<br><code>node -v</code><br>显示 npm 的版本号<br><code>npm -v</code><br>在 mac 上更新 npm<br><code>sudo npm install npm --global</code> </p>
+<h2 id="NPM-教程"><a href="#NPM-教程" class="headerlink" title="NPM 教程"></a>NPM 教程</h2><p><a href="http://www.runoob.com/nodejs/nodejs-npm.html" target="_blank" rel="external">NPM 使用介绍</a></p>
+<h2 id="淘宝-NPM-镜像"><a href="#淘宝-NPM-镜像" class="headerlink" title="淘宝 NPM 镜像"></a>淘宝 NPM 镜像</h2><p><a href="https://npm.taobao.org/" target="_blank" rel="external">https://npm.taobao.org/</a></p>
+<h2 id="使用-NPM-命令安装模块"><a href="#使用-NPM-命令安装模块" class="headerlink" title="使用 NPM 命令安装模块"></a>使用 NPM 命令安装模块</h2><p>从 <a href="http://npmjs.org" target="_blank" rel="external">http://npmjs.org</a> 维护的 public package registry 获取，模块可以使用 npm install 安装：<br><code>npm install &lt;moduleName&gt;</code></p>
+<h2 id="全局安装与本地安装"><a href="#全局安装与本地安装" class="headerlink" title="全局安装与本地安装"></a>全局安装与本地安装</h2><p>npm 的包安装分为本地安装（local）、全局安装（global）两种，从敲的命令行来看，差别只是有没有-g而已，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install express     # 本地安装</div><div class="line">npm install express -g   # 全局安装</div></pre></td></tr></table></figure>
+<p>如果出现以下错误：<br><code>npm err! Error: connect ECONNREFUSED 127.0.0.1:8087</code></p>
+<p>解决办法为：<br><code>npm config set proxy null</code></p>
+<h2 id="查看所有全局安装的模块"><a href="#查看所有全局安装的模块" class="headerlink" title="查看所有全局安装的模块"></a>查看所有全局安装的模块</h2><p><code>npm ls -g</code></p>
+<h2 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h2><p><code>npm uninstall express</code><br><code>npm uninstall express -g</code></p>
+<p>卸载后，你可以到 /node_modules/ 目录下查看包是否还存在，或者使用以下命令查看：<br><code>npm ls</code></p>
+<h2 id="查看模块信息"><a href="#查看模块信息" class="headerlink" title="查看模块信息"></a>查看模块信息</h2><p><code>npm info express</code></p>
+<h2 id="安装特定的版本"><a href="#安装特定的版本" class="headerlink" title="安装特定的版本"></a>安装特定的版本</h2><p><code>npm install express@1.*.0</code></p>
+<h2 id="使用-package-json"><a href="#使用-package-json" class="headerlink" title="使用 package.json"></a>使用 package.json</h2><p>在你的项目里面使用：<br><code>npm init</code><br>根据提示信息输入你想填入的<br>在最后输入 “yes” 后会生成 package.json 文件。</p>
+<h2 id="Package-json-属性说明"><a href="#Package-json-属性说明" class="headerlink" title="Package.json 属性说明"></a>Package.json 属性说明</h2><blockquote>
+<p>name - 包名。<br>version - 包的版本号。<br>description - 包的描述。<br>homepage - 包的官网 url 。<br>author - 包的作者姓名。<br>contributors - 包的其他贡献者姓名。<br>dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。<br>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。<br>main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后 require(“express”)。<br>keywords - 关键字</p>
+</blockquote>
+<h2 id="保存模块到-Package-json"><a href="#保存模块到-Package-json" class="headerlink" title="保存模块到 Package.json"></a>保存模块到 Package.json</h2><p><code>npm install express --save</code><br>开发依赖<br><code>npm install express --save-dev</code><br>删除<br><code>npm uninstall express --save</code></p>
+<h2 id="查看当前项目所有可更新的包"><a href="#查看当前项目所有可更新的包" class="headerlink" title="查看当前项目所有可更新的包"></a>查看当前项目所有可更新的包</h2><p><code>npm outdated</code></p>
+<h2 id="更新的包"><a href="#更新的包" class="headerlink" title="更新的包"></a>更新的包</h2><p><code>npm update</code></p>
+<h2 id="查看是否更新成功-gulp-是安装的包"><a href="#查看是否更新成功-gulp-是安装的包" class="headerlink" title="查看是否更新成功 (gulp 是安装的包)"></a>查看是否更新成功 (gulp 是安装的包)</h2><p><code>npm list | grep gulp</code></p>
+<h2 id="安装-nrm"><a href="#安装-nrm" class="headerlink" title="安装 nrm"></a>安装 nrm</h2><p><code>npm install nrm -g</code></p>
+<h2 id="查看可以使用的源"><a href="#查看可以使用的源" class="headerlink" title="查看可以使用的源"></a>查看可以使用的源</h2><p><code>nrm ls</code><br>测试连接这些源的速度<br><code>nrm test</code></p>
+<h2 id="切换当前的源"><a href="#切换当前的源" class="headerlink" title="切换当前的源"></a>切换当前的源</h2><p><code>nrm use taobao</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      Node 包管理器（Node Package Manager）。它是一个以 javascript 编写的软件包管理系统，默认环境为 Node.js，从Node.js0.6.3 版本开始，npm 被自动附带在安装包中。
     
     </summary>
     
+      <category term="npm" scheme="http://blog.jybx.me/categories/npm/"/>
+    
+      <category term="nodejs" scheme="http://blog.jybx.me/categories/npm/nodejs/"/>
+    
+    
+      <category term="npm" scheme="http://blog.jybx.me/tags/npm/"/>
+    
+      <category term="nodejs" scheme="http://blog.jybx.me/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Hexo + Github Pages 搭建个人独立博客</title>
+    <link href="http://blog.jybx.me/hexo.html"/>
+    <id>http://blog.jybx.me/hexo.html</id>
+    <published>2016-09-03T16:11:53.000Z</published>
+    <updated>2016-09-16T07:16:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用-Hexo-Github-Pages-搭建个人独立博客"><a href="#使用-Hexo-Github-Pages-搭建个人独立博客" class="headerlink" title="使用 Hexo + Github Pages 搭建个人独立博客"></a>使用 Hexo + Github Pages 搭建个人独立博客</h1><h2 id="什么是-Hexo-？"><a href="#什么是-Hexo-？" class="headerlink" title="什么是 Hexo ？"></a>什么是 Hexo ？</h2><blockquote>
+<p>Hexo 是一个基于 Nodejs 快速简洁高效的博客框架，Hexo 使用 Markdown 语法来编辑文章，只需要几秒钟的时间就可以成生静态的网页。整个系统就是一个博客系统。</p>
+</blockquote>
+<h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><p>如果想使用 Hexo，需要在你的系统中支持 Nodejs 以及 Git，如果还没有，那就开始安装吧！</p>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>进入官网：<em><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></em> 下载<br>参考地址：<a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">nodejs安装</a></p>
+<h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="external">官网</a><br>入门教程：<em><a href="http://git.oschina.net/progit/" target="_blank" rel="external">http://git.oschina.net/progit/</a></em></p>
+<h2 id="Github-Pages-设置"><a href="#Github-Pages-设置" class="headerlink" title="Github Pages 设置"></a>Github Pages 设置</h2><p>请自行注册账号，如有略过。<br>github 官网：<em><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></em></p>
+<p>登陆之后，点击页面右上角的加号，选择 <code>New repository</code>，<br>进入代码库创建页面，在<code>Repository name</code>下填写 yourname.github.io，<code>Description (optional)</code>下填写一些简单的描述，然后保存。</p>
+<h2 id="配置-SSH-密钥"><a href="#配置-SSH-密钥" class="headerlink" title="配置 SSH 密钥"></a>配置 SSH 密钥</h2><p>配置 Github 的 SSH 密钥可以让本地 git 项目与远程的 github 建立联系，让我们在本地写了代码之后直接通过 git 操作就可以实现本地代码库与 Github 代码库同步。操作如下：</p>
+<ol>
+<li><code>cd ~/. ssh</code></li>
+<li><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></li>
+<li>此时也可以输入特定的文件名，比如/Users/<em>**</em>/.ssh/github_rsa</li>
+<li>根据提示，你需要输入密码和确认密码</li>
+<li><code>cat ~/.ssh/github_rsa.pub</code> 并复制</li>
+<li>登陆 GitHub,进入你的 Account Settings</li>
+<li>选择 SSH Keys</li>
+<li>粘贴密钥，添加即可</li>
+<li><code>ssh -T git@github.com</code></li>
+<li>输入yes就好，然后会看到</li>
+<li><code>Hi ＊＊＊＊! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></li>
+<li><code>git config --global user.name &quot;google&quot;//用户名</code></li>
+<li><code>git config --global user.email  &quot;google@gmail.com&quot;//填写自己的邮箱</code></li>
+</ol>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>如果命令无法运行，可以尝试更换 taobao 的 npm 源</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>**</p>
+<blockquote>
+<p>进入你的目录 <code>mkdir hexo &amp;&amp; cd hexo</code></p>
+<p>Hexo 是基于 Node.js 的第三方模块，所以我们需要对其进行单独安装。Windows 用户打开 CMD，输入代码：<br><code>npm install -g hexo</code></p>
+<p>Mac 用户打开 Terminal，输入代码：<br><code>sudo npm install -g hexo</code></p>
+<p>创建一个 Hexo 的新框架<br><code>hexo init</code></p>
+<p><img src="http://api.jybx.me/hexo1.png" alt="hexo1"><br>生成一套静态网页<br><code>hexo generate</code></p>
+<p>在服务器上运行<br><code>hexo server</code></p>
+<p>输入完毕后，会提示你使用浏览器进入 <em><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></em></p>
+<p>Hexo 常用的几个命令：</p>
+<ol>
+<li>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</li>
+<li>hexo server (hexo s) 启动本地 web 服务，用于博客的预览</li>
+<li>hexo deploy (hexo d) 部署播客到远端（比如 github, heroku 等平台）</li>
+<li>hexo n “学习笔记” (hexo n) 新建一篇标题为 <code>学习笔记</code> 的文章 </li>
+<li>hexo clean 清除缓存文件 db.json 和已生成的静态文件 public</li>
+</ol>
+</blockquote>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>如你所见，默认的页面不好看。<br>进入官方主题库：<em><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">https://github.com/hexojs/hexo/wiki/Themes</a></em><br>挑选你喜欢的主题，我这里是：<em><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></em><br>打开终端，进入到 Hexo 的目录下，继续输入：<br><code>cd themes</code><br><code>git clone https://github.com/iissnan/hexo-theme-next.git</code><br><code>cd hexo</code><br>根目录上的 _config.yml 文件<br><code>vi _config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: hexo-theme-next</div></pre></td></tr></table></figure>
+<p><code>hexo generate</code><br><code>hexo server</code><br>进入 <em><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></em> 查看更换的主题<br>更多关于这款主题的配置请参考：<em><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a></em> </p>
+<h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">├── _config.yml // 主题配置文件</div><div class="line">├── languages // 多语言文件夹</div><div class="line">├── layout</div><div class="line">│   ├── archive.swig // 存档页模板</div><div class="line">│   ├── category.swig // 分类文章列表页模板</div><div class="line">│   ├── includes // 各页面共享的模板</div><div class="line">│   │   ├── layout.swig // 页面布局模板，其它的页面模板都是根据它扩展来的</div><div class="line">│   │   ├── pagination.swig // 翻页按钮模板</div><div class="line">│   │   └── recent-posts.swig // 文章列表模板</div><div class="line">│   ├── index.swig // 首页模板</div><div class="line">│   ├── page.swig // 页面详情页模板</div><div class="line">│   ├── post.swig // 文章详情页模板</div><div class="line">│   └── tag.swig // 标签文章列表页模板</div><div class="line">└── source</div><div class="line">    ├── css</div><div class="line">    │   └── theme.styl // 主题自定义 CSS 文件</div><div class="line">    ├── favicon.ico</div><div class="line">    └── js</div><div class="line">        └── theme.js // 主题 JavaScript 文件</div></pre></td></tr></table></figure>
+<h2 id="添加-“标签”-页面"><a href="#添加-“标签”-页面" class="headerlink" title="添加 “标签” 页面"></a>添加 “标签” 页面</h2><p>定位到 Hexo 站点目录下<br>使用 <code>hexo new page</code> 新建一个页面，命名为 tags<br>编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: 2016-09-01 12:39:04</div><div class="line">type: &quot;tags&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<h2 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h2><p>为了避免一些麻烦的错误如：<code>error deployer not found git hexo</code> 请将下面的插件都安装完。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-index --save</div><div class="line">npm install hexo-generator-archive --save</div><div class="line">npm install hexo-generator-category --save</div><div class="line">npm install hexo-generator-tag --save</div><div class="line">npm install hexo-server --save</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-deployer-heroku --save</div><div class="line">npm install hexo-deployer-rsync --save</div><div class="line">npm install hexo-deployer-openshift --save</div><div class="line">npm install hexo-renderer-marked@0.2 --save</div><div class="line">npm install hexo-renderer-stylus@0.2 --save</div><div class="line">npm install hexo-generator-feed@1 --save</div><div class="line">npm install hexo-generator-sitemap@1 --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
+<h2 id="修改文章链接"><a href="#修改文章链接" class="headerlink" title="修改文章链接"></a>修改文章链接</h2><p>HEXO 默认的文章链接形式为 domain/year/month/day/postname，默认就是一个四级 url，并且可能造成 url 过长，对搜索引擎是十分不友好的，我们可以改成 domain/postname 的形式。编辑站点 _config.yml 文件，修改其中的 permalink 字段 <code>permalink: :year/:month/:day/:title/</code> 改为 <code>permalink: :title.html</code> 即可。</p>
+<h2 id="给站点添加-sitemap-网站地图"><a href="#给站点添加-sitemap-网站地图" class="headerlink" title="给站点添加 sitemap 网站地图"></a>给站点添加 sitemap 网站地图</h2><p>Sitemap 可方便网站管理员通知搜索引擎他们网站上有哪些可供抓取的网页。 －－摘自<a href="http://www.lovexing.cn/2016/03/15/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">万物</a><br>在 hexo 站点 _config.yml 中间添加代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># hexo sitemap网站地图  </div><div class="line">sitemap:  </div><div class="line">path: sitemap.xml  </div><div class="line">baidusitemap:  </div><div class="line">path: baidusitemap.xml</div></pre></td></tr></table></figure>
+<p>执行 <code>hexo g</code> 即可生成这两个文件，sitemap 是提交给谷歌的，baidusitemap 是提交给百度的。</p>
+<h2 id="添加蜘蛛协议robots-txt"><a href="#添加蜘蛛协议robots-txt" class="headerlink" title="添加蜘蛛协议robots.txt"></a>添加蜘蛛协议robots.txt</h2><p>在 hexo 目录下的 source 目录下，新建 robots.txt，复制代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># hexo robots.txt</div><div class="line">User-agent: *</div><div class="line">Allow: /</div><div class="line"></div><div class="line">Disallow: /js/</div><div class="line">Disallow: /css/</div><div class="line">Disallow: /fonts/</div><div class="line"></div><div class="line">Sitemap: http://blog.jybx.me/sitemap.xml</div><div class="line">Sitemap: http://blog.jybx.me/baidusitemap.xml</div></pre></td></tr></table></figure>
+<p>将最后的域名改成自己的就可以了。</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>在 hexo 项目的 source 目录下新建一个文件 CNAME (不需要后缀名)<br>在 CNAME 中添加一行(自己购买的域名)，注意不需要http://。</p>
+<h2 id="Hexo-上传-README-文件"><a href="#Hexo-上传-README-文件" class="headerlink" title="Hexo 上传 README 文件"></a>Hexo 上传 README 文件</h2><p><code>cd .deploy/</code><br><code>touch README.md</code><br><code>vi README.md</code></p>
+<h2 id="将本地的-Hexo-文件更新到-Github-的库中"><a href="#将本地的-Hexo-文件更新到-Github-的库中" class="headerlink" title="将本地的 Hexo 文件更新到 Github 的库中"></a>将本地的 Hexo 文件更新到 Github 的库中</h2><blockquote>
+<p>第一步、登录 Github 打开自己的项目 username.github.io<br>第二步、打开之后，点击 HTTPS，选择 HTTPS 类型地址<br>第三步、复制地址<br>第四步、打开你一开始创建的 Hexo 文件夹，编辑_config.yml 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/****/****.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</blockquote>
+<p>执行 <code>hexo clean</code> （缓存问题）<br>执行 <code>hexo g -d</code></p>
+<h2 id="更新到最新版本的-Hexo"><a href="#更新到最新版本的-Hexo" class="headerlink" title="更新到最新版本的 Hexo"></a>更新到最新版本的 Hexo</h2><p><code>npm update -g hexo /** 使用 npm 命令更新 Hexo **/</code><br>查看 Hexo 的版本<br><code>hexo version</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hexo: 3.2.2</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Darwin 15.6.0 darwin x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.4.0</div><div class="line">v8: 5.0.71.60</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.8</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 57.1</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2h</div></pre></td></tr></table></figure>
+<h2 id="背景效果"><a href="#背景效果" class="headerlink" title="背景效果"></a>背景效果</h2><p>此效果摘自 <a href="http://ehlxr.me/2016/08/30/%E4%BD%BF%E7%94%A8Hexo%E5%9F%BA%E4%BA%8EGitHub-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/" target="_blank" rel="external">一个程序猿之家</a><br>把 js 文件 <a href="https://github.com/ehlxr/ehlxr.github.io/blob/master/js/src/love.js" target="_blank" rel="external">love.js</a> 和 <a href="https://github.com/ehlxr/ehlxr.github.io/blob/master/js/src/particle.js" target="_blank" rel="external">particle.js</a> 放在 \themes\hexo-theme-next\source\js\src 文件目录下<br>更新 \themes\hexo-theme-next\layout_layout.swig 文件，在末尾（在前面引用会出现找不到的 bug）添加以下 js 引入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 背景动画 --&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/particle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;!-- 页面点击小红心 --&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="在-NexT-主题上增加留言板的功能"><a href="#在-NexT-主题上增加留言板的功能" class="headerlink" title="在 NexT 主题上增加留言板的功能"></a>在 NexT 主题上增加留言板的功能</h2><p>前提是已添加多说插件，查看原文 <a href="http://www.lovexing.cn/2016/04/29/NexT%E4%B8%BB%E9%A2%98%E6%96%B0%E5%BB%BA-%E7%95%99%E8%A8%80-%E9%A1%B5%E9%9D%A2/" target="_blank" rel="external">万物</a></p>
+<blockquote>
+<p>修改主题配置文件 _config.yml（要注意是 hexo-theme-next 目录下的 _config.yml，不是 hexo 站点目录下的 _config.yml），即 hexo 初始化目录下的 /themes/hexo-theme-next/_config.yml，添加 guestbook 到 menu 中:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  home: /  </div><div class="line">  #categories: /categories  </div><div class="line">  about: /about  </div><div class="line">  archives: /archives  </div><div class="line">  tags: /tags  </div><div class="line">  #commonweal: /404.html  </div><div class="line">  guestbook: /guestbook</div></pre></td></tr></table></figure>
+<p>这样就在网站 menu 中增加了一个菜单：guestbook，此时留言板还没有真的实现。</p>
+<blockquote>
+<p>修改 hexo-theme-next/languages 文件目录中的 zh-Hans.yml 文件（我用的是简体中文的，其他语言也是类似的），即 hexo 初始化目录下 /themes/hexo-theme-next/languages/zh-Hans.yml，添加 guestbook: 留言 到 menu 中</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  home: 首页</div><div class="line">  archives: 归档</div><div class="line">  categories: 分类</div><div class="line">  tags: 标签</div><div class="line">  about: 关于</div><div class="line">  search: 搜索</div><div class="line">  commonweal: 公益404</div><div class="line">  guestbook: 留言</div></pre></td></tr></table></figure>
+<p>这样在网站上就可以显示中文留言两个字。</p>
+<blockquote>
+<p>新建guestbook页面，执行 <code>hexo new page &quot;guestbook&quot;</code>。此时会在 hexo 初始化目录下的 /source 中看到名为 guestbook 的文件夹，在 index.md 中添加 comments: true 如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: guestbook</div><div class="line">date: 2016-09-15 14:44:19</div><div class="line">comments: true</div><div class="line">---</div><div class="line">&gt; 最近访客</div><div class="line">&lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;28&quot; data-avatar-size=&quot;42&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>class=“ds-recent-visitors”    //指定显示最近访客容器<br>data-num-items=“28”    //显示最近访客的数量<br>data-avatar-size=“42”    //显示最近访客头像尺寸大小<br>id=“ds-recent-visitors”    //为了调节最近访客样式加的</p>
+</blockquote>
+<h2 id="添加音乐播放器功能"><a href="#添加音乐播放器功能" class="headerlink" title="添加音乐播放器功能"></a>添加音乐播放器功能</h2><p>在网易音乐的中，生成外链播放器代码，放入刚才 guestbook 文件夹中的 index.md。－－摘自 <a href="http://www.iamlj.com/2016/07/add-music-player-function-for-hexo/" target="_blank" rel="external">jing’s</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: guestbook</div><div class="line">date: 2016-09-15 14:44:19</div><div class="line">comments: true</div><div class="line">---</div><div class="line">&gt; 最近访客</div><div class="line">&lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;28&quot; data-avatar-size=&quot;42&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!-- 只显示播放器 --&gt;</div><div class="line">&lt;div style=&quot;max-width: 350px;max-height: 150px&quot;&gt;</div><div class="line">&lt;embed style=&quot;margin-top: -35px;&quot; frameborder=&quot;no&quot; border=&quot;0&quot;marginwidth=&quot;0&quot; marginheight=&quot;0&quot; src=&quot;http://music.163.com/outchain/player?type=2&amp;id=3413782&amp;auto=1&amp;height=66&quot;&gt;&lt;/embed&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="自定义头像样式"><a href="#自定义头像样式" class="headerlink" title="自定义头像样式"></a>自定义头像样式</h2><p>在 hexo/themes/hexo-theme-next/source/css/_common/components/sidebar 目录下修改 <code>vi sidebar.styl</code> ，将以下代码加在最后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">.site-author-image &#123;</div><div class="line">  display: block;</div><div class="line">  margin: 0 auto;</div><div class="line">  max-width: 96px;</div><div class="line">  height: auto;</div><div class="line">  padding: 2px;</div><div class="line"> </div><div class="line">  /* start*/</div><div class="line">  border-radius: 90%</div><div class="line">  webkit-transition: 1.4s all;</div><div class="line">  moz-transition: 1.4s all;</div><div class="line">  ms-transition: 1.4s all;</div><div class="line">  transition: 1.4s all;</div><div class="line">  /* end */</div><div class="line">&#125;</div><div class="line">.site-author-image:hover &#123;</div><div class="line">  transform: rotateZ(360deg);</div><div class="line">  -webkit-transform: rotateZ(360deg);</div><div class="line">  -moz-transform: rotateZ(360deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="用-Hexo-发表新文章"><a href="#用-Hexo-发表新文章" class="headerlink" title="用 Hexo 发表新文章"></a>用 Hexo 发表新文章</h2><p><code>hexo n &quot;文章标题&quot;</code></p>
+<h2 id="MWeb-篇"><a href="#MWeb-篇" class="headerlink" title="MWeb 篇"></a>MWeb 篇</h2><p>打开 MWeb, ​Command + E 切换到外部模式(使用 cmd + L 可以切回默认的 library 模式), 然后把 hexo 下的 source 目录拖到左边, 设置它的 Display name 为 github blog (随意), 最重要一点是设置 Media Save Path 为 Absolute, 这样就可以直接使用 MWeb 的粘贴图片功能。<br><img src="http://www.cyper.me/media/14656594763908.jpg" alt=""></p>
+<p>这样写新博客使用 hexo n “your new blog title”命令即可, MWeb 会监控到新生成的 md 文件并自动显示在当前的视图中, 在 MWeb 中编辑好后, 使用<code>hexo d -g</code>直接发布。</p>
+<h2 id="文章正文内容详情"><a href="#文章正文内容详情" class="headerlink" title="文章正文内容详情"></a>文章正文内容详情</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: postName #文章页面上的显示名称，可以任意修改，不会出现在URL中</div><div class="line">date: 2016-09-04 00:11:53 #文章生成时间，一般不改，当然也可以任意修改</div><div class="line">categories: example #分类</div><div class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</div><div class="line">description: 附加一段文章摘要，字数最好在140字以内。</div><div class="line">---</div><div class="line"></div><div class="line">以下正文</div></pre></td></tr></table></figure>
+<h2 id="七牛图床设置详细说明"><a href="#七牛图床设置详细说明" class="headerlink" title="七牛图床设置详细说明"></a>七牛图床设置详细说明</h2><p>如下图，进入 MWeb 的偏好设置 - 发布服务里，本地图片上传服务中，点右边的 七牛云存储 按钮，会跳出如下图的新增窗口：<br><img src="http://zh.mweb.im/media/14531669957228/14531677609529.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Hexo 是一个基于 Nodejs 快速简洁高效的博客框架，Hexo 使用 Markdown 语法来编辑文章，只需要几秒钟的时间就可以成生静态的网页。整个系统就是一个博客系统。
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://blog.jybx.me/categories/hexo/"/>
+    
+      <category term="github" scheme="http://blog.jybx.me/categories/hexo/github/"/>
+    
+    
+      <category term="hexo" scheme="http://blog.jybx.me/tags/hexo/"/>
+    
+      <category term="github" scheme="http://blog.jybx.me/tags/github/"/>
+    
+      <category term="七牛云" scheme="http://blog.jybx.me/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    
+      <category term="mweb" scheme="http://blog.jybx.me/tags/mweb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac Terminal 终端 配置 zsh</title>
+    <link href="http://blog.jybx.me/Mac-Terminal-zsh.html"/>
+    <id>http://blog.jybx.me/Mac-Terminal-zsh.html</id>
+    <published>2016-04-25T02:36:31.000Z</published>
+    <updated>2016-09-14T15:12:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Mac-Terminal-终端-配置-zsh"><a href="#Mac-Terminal-终端-配置-zsh" class="headerlink" title="Mac Terminal 终端 配置 zsh"></a>Mac Terminal 终端 配置 zsh</h1><h2 id="Mac-自带-zsh，还是比较方便的哈"><a href="#Mac-自带-zsh，还是比较方便的哈" class="headerlink" title="Mac 自带 zsh，还是比较方便的哈"></a>Mac 自带 zsh，还是比较方便的哈</h2><p>首先，把 Terminal 的 shell 改一下：<br><code>chsh -s /bin/zsh</code><br>修改下你的 Terminal 的 ‘偏好设置’</p>
+<h2 id="oh-my-zsh-安装"><a href="#oh-my-zsh-安装" class="headerlink" title="oh-my-zsh 安装"></a>oh-my-zsh 安装</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh 安装</a></p>
+<ol>
+<li><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code></li>
+<li><code>cp ~/.zshrc ~/.zshrc.orig</code>   (此步可选)</li>
+<li><code>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</code></li>
+</ol>
+<h2 id="zsh-autosuggestions-安装自动提示"><a href="#zsh-autosuggestions-安装自动提示" class="headerlink" title="zsh-autosuggestions 安装自动提示"></a>zsh-autosuggestions 安装自动提示</h2><p><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="external">zsh-autosuggestions 安装自动提示</a></p>
+<ol>
+<li><code>git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions</code></li>
+<li>编辑 .zshrc 添加 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</li>
+<li>执行 <code>source .zshrc</code> </li>
+</ol>
+<h2 id="添加主机名"><a href="#添加主机名" class="headerlink" title="添加主机名"></a>添加主机名</h2><blockquote>
+<pre><code>vim ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+</code></pre><p>注释原来的并添加下一句：</p>
+</blockquote>
+<pre><code>PROMPT=&apos;${ret_status}%M%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %     %{$reset_color%}&apos;
+</code></pre><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">oh-my-zsh 主题自选</a></p>
+<blockquote>
+<p>编辑 .zshrc<br><strong>修改 ZSH_THEME=robbyrussell</strong><br>执行 <code>source .zshrc</code> </p>
+</blockquote>
+<h2 id="oh-my-zsh-不能更新方法"><a href="#oh-my-zsh-不能更新方法" class="headerlink" title="oh-my-zsh 不能更新方法"></a>oh-my-zsh 不能更新方法</h2><blockquote>
+<ol>
+<li>cd ~/.oh-my-zsh/</li>
+<li>git add .</li>
+<li>git commit -m “commit message”</li>
+<li>upgrade_oh_my_zsh</li>
+</ol>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      Mac Terminal 终端 配置 zsh
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://blog.jybx.me/categories/Mac/"/>
+    
+      <category term="Terminal" scheme="http://blog.jybx.me/categories/Mac/Terminal/"/>
+    
+      <category term="Zsh" scheme="http://blog.jybx.me/categories/Mac/Terminal/Zsh/"/>
+    
+    
+      <category term="Mac" scheme="http://blog.jybx.me/tags/Mac/"/>
+    
+      <category term="Terminal" scheme="http://blog.jybx.me/tags/Terminal/"/>
+    
+      <category term="Zsh" scheme="http://blog.jybx.me/tags/Zsh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>孙子兵法</title>
+    <link href="http://blog.jybx.me/sunzibingfa.html"/>
+    <id>http://blog.jybx.me/sunzibingfa.html</id>
+    <published>2016-01-18T10:42:07.000Z</published>
+    <updated>2016-09-14T15:30:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="孙子兵法十三篇－孙武"><a href="#孙子兵法十三篇－孙武" class="headerlink" title="孙子兵法十三篇－孙武"></a>孙子兵法十三篇－孙武</h1><blockquote>
+<p>人事管理：人的事物的管理，不太主观管人。</p>
+</blockquote>
+<h5 id="人事管理一定要有制度"><a href="#人事管理一定要有制度" class="headerlink" title="人事管理一定要有制度"></a>人事管理一定要有制度</h5><h5 id="经营理念很重要（薪资结构）"><a href="#经营理念很重要（薪资结构）" class="headerlink" title="经营理念很重要（薪资结构）"></a>经营理念很重要（薪资结构）</h5><h5 id="人是无法说服的"><a href="#人是无法说服的" class="headerlink" title="人是无法说服的"></a>人是无法说服的</h5><h5 id="当主管自己要情绪稳定"><a href="#当主管自己要情绪稳定" class="headerlink" title="当主管自己要情绪稳定"></a>当主管自己要情绪稳定</h5><h5 id="尽心尽力的是少数人"><a href="#尽心尽力的是少数人" class="headerlink" title="尽心尽力的是少数人"></a>尽心尽力的是少数人</h5><h5 id="不要把人逼到无路可走"><a href="#不要把人逼到无路可走" class="headerlink" title="不要把人逼到无路可走"></a>不要把人逼到无路可走</h5><h5 id="激励不能过分"><a href="#激励不能过分" class="headerlink" title="激励不能过分"></a>激励不能过分</h5><h5 id="看到员工，第一句话不要讲工作"><a href="#看到员工，第一句话不要讲工作" class="headerlink" title="看到员工，第一句话不要讲工作"></a>看到员工，第一句话不要讲工作</h5><h5 id="公司有没有向心力很重要，同心之后才能一心"><a href="#公司有没有向心力很重要，同心之后才能一心" class="headerlink" title="公司有没有向心力很重要，同心之后才能一心"></a>公司有没有向心力很重要，同心之后才能一心</h5><h5 id="部属能做的主管不要去做，部属能说的主管不要说"><a href="#部属能做的主管不要去做，部属能说的主管不要说" class="headerlink" title="部属能做的主管不要去做，部属能说的主管不要说"></a>部属能做的主管不要去做，部属能说的主管不要说</h5><h5 id="部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力"><a href="#部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力" class="headerlink" title="部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力"></a>部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力</h5><h5 id="主管不要说变就变，要造成对方非变不可"><a href="#主管不要说变就变，要造成对方非变不可" class="headerlink" title="主管不要说变就变，要造成对方非变不可"></a>主管不要说变就变，要造成对方非变不可</h5><h5 id="要动机很纯正，然后来有一些花样"><a href="#要动机很纯正，然后来有一些花样" class="headerlink" title="要动机很纯正，然后来有一些花样"></a>要动机很纯正，然后来有一些花样</h5><h5 id="水有目标，但是没有方向"><a href="#水有目标，但是没有方向" class="headerlink" title="水有目标，但是没有方向"></a>水有目标，但是没有方向</h5><h5 id="要注意小的问题"><a href="#要注意小的问题" class="headerlink" title="要注意小的问题"></a>要注意小的问题</h5><h5 id="越强调一件事情的时候，这个就是你的弱点"><a href="#越强调一件事情的时候，这个就是你的弱点" class="headerlink" title="越强调一件事情的时候，这个就是你的弱点"></a>越强调一件事情的时候，这个就是你的弱点</h5><h5 id="一个慈爱为怀的人不宜当将军，因为下不了决心"><a href="#一个慈爱为怀的人不宜当将军，因为下不了决心" class="headerlink" title="一个慈爱为怀的人不宜当将军，因为下不了决心"></a>一个慈爱为怀的人不宜当将军，因为下不了决心</h5><h5 id="有情有义的狠，就是合理"><a href="#有情有义的狠，就是合理" class="headerlink" title="有情有义的狠，就是合理"></a>有情有义的狠，就是合理</h5><h5 id="要正心，把心摆在中间"><a href="#要正心，把心摆在中间" class="headerlink" title="要正心，把心摆在中间"></a>要正心，把心摆在中间</h5><h5 id="心里是非分明，嘴里含含糊糊"><a href="#心里是非分明，嘴里含含糊糊" class="headerlink" title="心里是非分明，嘴里含含糊糊"></a>心里是非分明，嘴里含含糊糊</h5><h5 id="为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）"><a href="#为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）" class="headerlink" title="为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）"></a>为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）</h5><h5 id="性相近，习相远"><a href="#性相近，习相远" class="headerlink" title="性相近，习相远"></a>性相近，习相远</h5><h5 id="对人立法严，执法宽"><a href="#对人立法严，执法宽" class="headerlink" title="对人立法严，执法宽"></a>对人立法严，执法宽</h5><h2 id="中国的兵法的特征"><a href="#中国的兵法的特征" class="headerlink" title="中国的兵法的特征"></a>中国的兵法的特征</h2><blockquote>
+<p>以人为中心，掌握人性<br> 以水为对象，模拟学习<br> 以中为标准，力求合理</p>
+</blockquote>
+<h2 id="等待是一种艺术"><a href="#等待是一种艺术" class="headerlink" title="等待是一种艺术"></a>等待是一种艺术</h2><blockquote>
+<p>急事要缓办</p>
+</blockquote>
+<h2 id="四治"><a href="#四治" class="headerlink" title="四治"></a>四治</h2><h4 id="治心：治理员工的心"><a href="#治心：治理员工的心" class="headerlink" title="治心：治理员工的心"></a>治心：治理员工的心</h4><h6 id="治心－关怀导向"><a href="#治心－关怀导向" class="headerlink" title="治心－关怀导向"></a>治心－关怀导向</h6><blockquote>
+<p>自己安定，待敌混乱<br> 自己沉着，待敌浮躁<br> 自己情绪稳定，凡事谋定而后动</p>
+</blockquote>
+<h4 id="治力：治理员工的力量"><a href="#治力：治理员工的力量" class="headerlink" title="治力：治理员工的力量"></a>治力：治理员工的力量</h4><h6 id="治力"><a href="#治力" class="headerlink" title="治力"></a>治力</h6><blockquote>
+<p>利用地形，待敌来攻<br> 以逸待劳，以饱待饥<br> 利用形势少用权力，谆谆善诱不费力</p>
+</blockquote>
+<h4 id="治变：怎么让他自动的变，而不是我叫他变"><a href="#治变：怎么让他自动的变，而不是我叫他变" class="headerlink" title="治变：怎么让他自动的变，而不是我叫他变"></a>治变：怎么让他自动的变，而不是我叫他变</h4><h6 id="治变"><a href="#治变" class="headerlink" title="治变"></a>治变</h6><blockquote>
+<p>不要正面冲突，出其不意<br> 自己立场先站稳，造成情势引导员工变动</p>
+</blockquote>
+<h4 id="治气：怎么把士气诱导到最有利的方向去"><a href="#治气：怎么把士气诱导到最有利的方向去" class="headerlink" title="治气：怎么把士气诱导到最有利的方向去"></a>治气：怎么把士气诱导到最有利的方向去</h4><h6 id="治气"><a href="#治气" class="headerlink" title="治气"></a>治气</h6><blockquote>
+<p>士气旺盛，退避<br> 士气低落，攻击<br> 多用正气，阳气，维持正常士气</p>
+</blockquote>
+<h2 id="布局造势摆平"><a href="#布局造势摆平" class="headerlink" title="布局造势摆平"></a>布局造势摆平</h2><blockquote>
+<p>示形之术（诱敌之术）设法让员工／顾客自发自动<br> 激流之计（加速效果）引发潜在能力，提高绩效<br> 两面手法（持续发挥）知己知彼才能百战不殆</p>
+</blockquote>
+<h2 id="兵势篇"><a href="#兵势篇" class="headerlink" title="兵势篇"></a>兵势篇</h2><blockquote>
+<p>要操作敌人，必须造成一种状况，使敌人自动自发地行动，如能灵活地加以运用，则敌人将不战自败。</p>
+</blockquote>
+<h2 id="虚实篇"><a href="#虚实篇" class="headerlink" title="虚实篇"></a>虚实篇</h2><blockquote>
+<p>让敌人依照我方的安排行动，不断攻击下来，须让他们自认为对本身有利，而不让对方觉察不利，否则敌人便不会来，强制不如诱敌。</p>
+</blockquote>
+<h2 id="地形篇"><a href="#地形篇" class="headerlink" title="地形篇"></a>地形篇</h2><blockquote>
+<p>知己知彼，百胜不殆（中心思想）<br> 知天知地，胜利无穷</p>
+</blockquote>
+<h2 id="将有五危"><a href="#将有五危" class="headerlink" title="将有五危"></a>将有五危</h2><h5 id="必死"><a href="#必死" class="headerlink" title="必死"></a>必死</h5><p>无谓的牺牲</p>
+<h5 id="必有援兵"><a href="#必有援兵" class="headerlink" title="必有援兵"></a>必有援兵</h5><p>就会被俘</p>
+<h5 id="必怒"><a href="#必怒" class="headerlink" title="必怒"></a>必怒</h5><p>不能忍辱，易陷入敌计</p>
+<h5 id="过分爱名"><a href="#过分爱名" class="headerlink" title="过分爱名"></a>过分爱名</h5><p>易被造谣中伤</p>
+<h5 id="过分爱民"><a href="#过分爱民" class="headerlink" title="过分爱民"></a>过分爱民</h5><p>影响作战</p>
+<h2 id="领导用人之道"><a href="#领导用人之道" class="headerlink" title="领导用人之道"></a>领导用人之道</h2><blockquote>
+<p>不拘小节，能综合看大体<br> 不拘泥相对性的一面<br> 不因小失大，看近不看远</p>
+</blockquote>
+<h2 id="人事管理八大要领"><a href="#人事管理八大要领" class="headerlink" title="人事管理八大要领"></a>人事管理八大要领</h2><h5 id="进退（好聚好散）"><a href="#进退（好聚好散）" class="headerlink" title="进退（好聚好散）"></a>进退（好聚好散）</h5><h5 id="奖惩（先奖下面先罚上面）"><a href="#奖惩（先奖下面先罚上面）" class="headerlink" title="奖惩（先奖下面先罚上面）"></a>奖惩（先奖下面先罚上面）</h5><h5 id="教养"><a href="#教养" class="headerlink" title="教养"></a>教养</h5><h5 id="老死"><a href="#老死" class="headerlink" title="老死"></a>老死</h5>]]></content>
+    
+    <summary type="html">
+    
+      人事管理：人的事物的管理，不太主观管人
+    
+    </summary>
+    
+      <category term="孙子兵法" scheme="http://blog.jybx.me/categories/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
+    
+    
+      <category term="孙子兵法" scheme="http://blog.jybx.me/tags/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
+    
+      <category term="孙武" scheme="http://blog.jybx.me/tags/%E5%AD%99%E6%AD%A6/"/>
     
   </entry>
   

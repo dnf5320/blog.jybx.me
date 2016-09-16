@@ -3,20 +3,111 @@
 
 
     
-    
   <url>
-    <loc>http://blog.jybx.me/hello-world.html</loc>
-    <lastmod>2016-09-16T06:07:39.000Z</lastmod>
+    <loc>http://blog.jybx.me/hexo.html</loc>
+    <lastmod>2016-09-16T07:16:42.000Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2016-09-16T06:07:39.000Z</pubTime>
+        <title>使用 Hexo + Github Pages 搭建个人独立博客</title>
+        <pubTime>2016-09-03T16:11:53.000Z</pubTime>
         
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+        <tag>七牛云</tag>
+         
+        <tag>mweb</tag>
+         
          
            
+             
+              <breadCrumb title="hexo" url="http://blog.jybx.me/categories/hexo/"/>
+          
+             
+              <breadCrumb title="github" url="http://blog.jybx.me/categories/hexo/github/"/>
+          
         </display>
     </data>
     </url>
 
     
+    
+    
+  <url>
+    <loc>http://blog.jybx.me/sunzibingfa.html</loc>
+    <lastmod>2016-09-14T15:30:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>孙子兵法</title>
+        <pubTime>2016-01-18T10:42:07.000Z</pubTime>
+        
+        <tag>孙子兵法</tag>
+         
+        <tag>孙武</tag>
+         
+         
+           
+             
+              <breadCrumb title="孙子兵法" url="http://blog.jybx.me/categories/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.jybx.me/Mac-Terminal-zsh.html</loc>
+    <lastmod>2016-09-14T15:12:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac Terminal 终端 配置 zsh</title>
+        <pubTime>2016-04-25T02:36:31.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>Terminal</tag>
+         
+        <tag>Zsh</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="http://blog.jybx.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="Terminal" url="http://blog.jybx.me/categories/Mac/Terminal/"/>
+          
+             
+              <breadCrumb title="Zsh" url="http://blog.jybx.me/categories/Mac/Terminal/Zsh/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.jybx.me/npm.html</loc>
+    <lastmod>2016-09-14T15:04:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>npm javascript 包管理</title>
+        <pubTime>2016-09-11T13:57:01.000Z</pubTime>
+        
+        <tag>npm</tag>
+         
+        <tag>nodejs</tag>
+         
+         
+           
+             
+              <breadCrumb title="npm" url="http://blog.jybx.me/categories/npm/"/>
+          
+             
+              <breadCrumb title="nodejs" url="http://blog.jybx.me/categories/npm/nodejs/"/>
+          
+        </display>
+    </data>
+    </url>
+
 </urlset>
