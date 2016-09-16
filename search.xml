@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>一个人住的七年</title>
-  <subtitle>做自己喜欢的事，会遇见喜欢的人。</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<search>
   
-  <link href="http://blog.jybx.me/"/>
-  <updated>2016-09-14T15:04:41.000Z</updated>
-  <id>http://blog.jybx.me/</id>
   
-  <author>
-    <name>七年</name>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>npm javascript 包管理</title>
-    <link href="http://blog.jybx.me/npm.html"/>
-    <id>http://blog.jybx.me/npm.html</id>
-    <published>2016-09-11T13:57:01.000Z</published>
-    <updated>2016-09-14T15:04:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="npm-javascript-包管理"><a href="#npm-javascript-包管理" class="headerlink" title="npm javascript 包管理"></a>npm javascript 包管理</h1><h2 id="node-包管理器"><a href="#node-包管理器" class="headerlink" title="node 包管理器"></a>node 包管理器</h2><blockquote>
+    <entry>
+      <title><![CDATA[npm javascript 包管理]]></title>
+      <url>http://blog.jybx.me/npm.html</url>
+      <content type="html"><![CDATA[<h1 id="npm-javascript-包管理"><a href="#npm-javascript-包管理" class="headerlink" title="npm javascript 包管理"></a>npm javascript 包管理</h1><h2 id="node-包管理器"><a href="#node-包管理器" class="headerlink" title="node 包管理器"></a>node 包管理器</h2><blockquote>
 <p>Node 包管理器（Node Package Manager）。它是一个以 javascript 编写的软件包管理系统，默认环境为 Node.js，从Node.js0.6.3 版本开始，npm 被自动附带在安装包中。<br>npm 运行在命令行下，并用于管理相依性包，npm 也允许用户安装在 npm registry 上的 Node.js 应用程序。<br>npm 由 Isaac Z. Schlueter 开发，为了匹配 CommonJS 的规范，如 PHP 之于 (PEAR)、Perl 之于 (CPAN)，进而开发出 npm。</p>
 </blockquote>
 <h2 id="Node-js-安装配置"><a href="#Node-js-安装配置" class="headerlink" title="Node.js 安装配置"></a>Node.js 安装配置</h2><p>Node.js 安装包及源码下载地址为：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
@@ -51,32 +35,12 @@
 <h2 id="查看可以使用的源"><a href="#查看可以使用的源" class="headerlink" title="查看可以使用的源"></a>查看可以使用的源</h2><p><code>nrm ls</code><br>测试连接这些源的速度<br><code>nrm test</code></p>
 <h2 id="切换当前的源"><a href="#切换当前的源" class="headerlink" title="切换当前的源"></a>切换当前的源</h2><p><code>nrm use taobao</code></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      Node 包管理器（Node Package Manager）。它是一个以 javascript 编写的软件包管理系统，默认环境为 Node.js，从Node.js0.6.3 版本开始，npm 被自动附带在安装包中。
-    
-    </summary>
-    
-      <category term="npm" scheme="http://blog.jybx.me/categories/npm/"/>
-    
-      <category term="nodejs" scheme="http://blog.jybx.me/categories/npm/nodejs/"/>
-    
-    
-      <category term="npm" scheme="http://blog.jybx.me/tags/npm/"/>
-    
-      <category term="nodejs" scheme="http://blog.jybx.me/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Hexo + Github Pages 搭建个人独立博客</title>
-    <link href="http://blog.jybx.me/hexo.html"/>
-    <id>http://blog.jybx.me/hexo.html</id>
-    <published>2016-09-03T16:11:53.000Z</published>
-    <updated>2016-09-16T07:40:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用-Hexo-Github-Pages-搭建个人独立博客"><a href="#使用-Hexo-Github-Pages-搭建个人独立博客" class="headerlink" title="使用 Hexo + Github Pages 搭建个人独立博客"></a>使用 Hexo + Github Pages 搭建个人独立博客</h1><h2 id="什么是-Hexo-？"><a href="#什么是-Hexo-？" class="headerlink" title="什么是 Hexo ？"></a>什么是 Hexo ？</h2><blockquote>
+    <entry>
+      <title><![CDATA[使用 Hexo + Github Pages 搭建个人独立博客]]></title>
+      <url>http://blog.jybx.me/hexo.html</url>
+      <content type="html"><![CDATA[<h1 id="使用-Hexo-Github-Pages-搭建个人独立博客"><a href="#使用-Hexo-Github-Pages-搭建个人独立博客" class="headerlink" title="使用 Hexo + Github Pages 搭建个人独立博客"></a>使用 Hexo + Github Pages 搭建个人独立博客</h1><h2 id="什么是-Hexo-？"><a href="#什么是-Hexo-？" class="headerlink" title="什么是 Hexo ？"></a>什么是 Hexo ？</h2><blockquote>
 <p>Hexo 是一个基于 Nodejs 快速简洁高效的博客框架，Hexo 使用 Markdown 语法来编辑文章，只需要几秒钟的时间就可以成生静态的网页。整个系统就是一个博客系统。</p>
 </blockquote>
 <h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><p>如果想使用 Hexo，需要在你的系统中支持 Nodejs 以及 Git，如果还没有，那就开始安装吧！</p>
@@ -173,36 +137,12 @@
 <h2 id="文章正文内容详情"><a href="#文章正文内容详情" class="headerlink" title="文章正文内容详情"></a>文章正文内容详情</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: postName #文章页面上的显示名称，可以任意修改，不会出现在URL中</div><div class="line">date: 2016-09-04 00:11:53 #文章生成时间，一般不改，当然也可以任意修改</div><div class="line">categories: example #分类</div><div class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</div><div class="line">description: 附加一段文章摘要，字数最好在140字以内。</div><div class="line">---</div><div class="line"></div><div class="line">以下正文</div></pre></td></tr></table></figure>
 <h2 id="七牛图床设置详细说明"><a href="#七牛图床设置详细说明" class="headerlink" title="七牛图床设置详细说明"></a>七牛图床设置详细说明</h2><p>如下图，进入 MWeb 的偏好设置 - 发布服务里，本地图片上传服务中，点右边的 七牛云存储 按钮，会跳出如下图的新增窗口：<br><img src="http://zh.mweb.im/media/14531669957228/14531677609529.jpg" alt=""></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      Hexo 是一个基于 Nodejs 快速简洁高效的博客框架，Hexo 使用 Markdown 语法来编辑文章，只需要几秒钟的时间就可以成生静态的网页。整个系统就是一个博客系统。
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://blog.jybx.me/categories/hexo/"/>
-    
-      <category term="github" scheme="http://blog.jybx.me/categories/hexo/github/"/>
-    
-    
-      <category term="hexo" scheme="http://blog.jybx.me/tags/hexo/"/>
-    
-      <category term="github" scheme="http://blog.jybx.me/tags/github/"/>
-    
-      <category term="七牛云" scheme="http://blog.jybx.me/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
-    
-      <category term="mweb" scheme="http://blog.jybx.me/tags/mweb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac Terminal 终端 配置 zsh</title>
-    <link href="http://blog.jybx.me/Mac-Terminal-zsh.html"/>
-    <id>http://blog.jybx.me/Mac-Terminal-zsh.html</id>
-    <published>2016-04-25T02:36:31.000Z</published>
-    <updated>2016-09-14T15:12:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mac-Terminal-终端-配置-zsh"><a href="#Mac-Terminal-终端-配置-zsh" class="headerlink" title="Mac Terminal 终端 配置 zsh"></a>Mac Terminal 终端 配置 zsh</h1><h2 id="Mac-自带-zsh，还是比较方便的哈"><a href="#Mac-自带-zsh，还是比较方便的哈" class="headerlink" title="Mac 自带 zsh，还是比较方便的哈"></a>Mac 自带 zsh，还是比较方便的哈</h2><p>首先，把 Terminal 的 shell 改一下：<br><code>chsh -s /bin/zsh</code><br>修改下你的 Terminal 的 ‘偏好设置’</p>
+    <entry>
+      <title><![CDATA[Mac Terminal 终端 配置 zsh]]></title>
+      <url>http://blog.jybx.me/Mac-Terminal-zsh.html</url>
+      <content type="html"><![CDATA[<h1 id="Mac-Terminal-终端-配置-zsh"><a href="#Mac-Terminal-终端-配置-zsh" class="headerlink" title="Mac Terminal 终端 配置 zsh"></a>Mac Terminal 终端 配置 zsh</h1><h2 id="Mac-自带-zsh，还是比较方便的哈"><a href="#Mac-自带-zsh，还是比较方便的哈" class="headerlink" title="Mac 自带 zsh，还是比较方便的哈"></a>Mac 自带 zsh，还是比较方便的哈</h2><p>首先，把 Terminal 的 shell 改一下：<br><code>chsh -s /bin/zsh</code><br>修改下你的 Terminal 的 ‘偏好设置’</p>
 <h2 id="oh-my-zsh-安装"><a href="#oh-my-zsh-安装" class="headerlink" title="oh-my-zsh 安装"></a>oh-my-zsh 安装</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh 安装</a></p>
 <ol>
 <li><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code></li>
@@ -233,36 +173,12 @@
 </ol>
 </blockquote>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      Mac Terminal 终端 配置 zsh
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://blog.jybx.me/categories/Mac/"/>
-    
-      <category term="Terminal" scheme="http://blog.jybx.me/categories/Mac/Terminal/"/>
-    
-      <category term="Zsh" scheme="http://blog.jybx.me/categories/Mac/Terminal/Zsh/"/>
-    
-    
-      <category term="Mac" scheme="http://blog.jybx.me/tags/Mac/"/>
-    
-      <category term="Terminal" scheme="http://blog.jybx.me/tags/Terminal/"/>
-    
-      <category term="Zsh" scheme="http://blog.jybx.me/tags/Zsh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>孙子兵法</title>
-    <link href="http://blog.jybx.me/sunzibingfa.html"/>
-    <id>http://blog.jybx.me/sunzibingfa.html</id>
-    <published>2016-01-18T10:42:07.000Z</published>
-    <updated>2016-09-14T15:30:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="孙子兵法十三篇－孙武"><a href="#孙子兵法十三篇－孙武" class="headerlink" title="孙子兵法十三篇－孙武"></a>孙子兵法十三篇－孙武</h1><blockquote>
+    <entry>
+      <title><![CDATA[孙子兵法]]></title>
+      <url>http://blog.jybx.me/sunzibingfa.html</url>
+      <content type="html"><![CDATA[<h1 id="孙子兵法十三篇－孙武"><a href="#孙子兵法十三篇－孙武" class="headerlink" title="孙子兵法十三篇－孙武"></a>孙子兵法十三篇－孙武</h1><blockquote>
 <p>人事管理：人的事物的管理，不太主观管人。</p>
 </blockquote>
 <h5 id="人事管理一定要有制度"><a href="#人事管理一定要有制度" class="headerlink" title="人事管理一定要有制度"></a>人事管理一定要有制度</h5><h5 id="经营理念很重要（薪资结构）"><a href="#经营理念很重要（薪资结构）" class="headerlink" title="经营理念很重要（薪资结构）"></a>经营理念很重要（薪资结构）</h5><h5 id="人是无法说服的"><a href="#人是无法说服的" class="headerlink" title="人是无法说服的"></a>人是无法说服的</h5><h5 id="当主管自己要情绪稳定"><a href="#当主管自己要情绪稳定" class="headerlink" title="当主管自己要情绪稳定"></a>当主管自己要情绪稳定</h5><h5 id="尽心尽力的是少数人"><a href="#尽心尽力的是少数人" class="headerlink" title="尽心尽力的是少数人"></a>尽心尽力的是少数人</h5><h5 id="不要把人逼到无路可走"><a href="#不要把人逼到无路可走" class="headerlink" title="不要把人逼到无路可走"></a>不要把人逼到无路可走</h5><h5 id="激励不能过分"><a href="#激励不能过分" class="headerlink" title="激励不能过分"></a>激励不能过分</h5><h5 id="看到员工，第一句话不要讲工作"><a href="#看到员工，第一句话不要讲工作" class="headerlink" title="看到员工，第一句话不要讲工作"></a>看到员工，第一句话不要讲工作</h5><h5 id="公司有没有向心力很重要，同心之后才能一心"><a href="#公司有没有向心力很重要，同心之后才能一心" class="headerlink" title="公司有没有向心力很重要，同心之后才能一心"></a>公司有没有向心力很重要，同心之后才能一心</h5><h5 id="部属能做的主管不要去做，部属能说的主管不要说"><a href="#部属能做的主管不要去做，部属能说的主管不要说" class="headerlink" title="部属能做的主管不要去做，部属能说的主管不要说"></a>部属能做的主管不要去做，部属能说的主管不要说</h5><h5 id="部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力"><a href="#部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力" class="headerlink" title="部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力"></a>部属能想的你就不要想，即便在想了也要隐蔽你的想法，让他想，让他讲。主管要启发，不能用力</h5><h5 id="主管不要说变就变，要造成对方非变不可"><a href="#主管不要说变就变，要造成对方非变不可" class="headerlink" title="主管不要说变就变，要造成对方非变不可"></a>主管不要说变就变，要造成对方非变不可</h5><h5 id="要动机很纯正，然后来有一些花样"><a href="#要动机很纯正，然后来有一些花样" class="headerlink" title="要动机很纯正，然后来有一些花样"></a>要动机很纯正，然后来有一些花样</h5><h5 id="水有目标，但是没有方向"><a href="#水有目标，但是没有方向" class="headerlink" title="水有目标，但是没有方向"></a>水有目标，但是没有方向</h5><h5 id="要注意小的问题"><a href="#要注意小的问题" class="headerlink" title="要注意小的问题"></a>要注意小的问题</h5><h5 id="越强调一件事情的时候，这个就是你的弱点"><a href="#越强调一件事情的时候，这个就是你的弱点" class="headerlink" title="越强调一件事情的时候，这个就是你的弱点"></a>越强调一件事情的时候，这个就是你的弱点</h5><h5 id="一个慈爱为怀的人不宜当将军，因为下不了决心"><a href="#一个慈爱为怀的人不宜当将军，因为下不了决心" class="headerlink" title="一个慈爱为怀的人不宜当将军，因为下不了决心"></a>一个慈爱为怀的人不宜当将军，因为下不了决心</h5><h5 id="有情有义的狠，就是合理"><a href="#有情有义的狠，就是合理" class="headerlink" title="有情有义的狠，就是合理"></a>有情有义的狠，就是合理</h5><h5 id="要正心，把心摆在中间"><a href="#要正心，把心摆在中间" class="headerlink" title="要正心，把心摆在中间"></a>要正心，把心摆在中间</h5><h5 id="心里是非分明，嘴里含含糊糊"><a href="#心里是非分明，嘴里含含糊糊" class="headerlink" title="心里是非分明，嘴里含含糊糊"></a>心里是非分明，嘴里含含糊糊</h5><h5 id="为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）"><a href="#为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）" class="headerlink" title="为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）"></a>为目的而行动，不可为了行动而行动，不能为了细节却忽略了主题（决策就是大小轻重缓急）</h5><h5 id="性相近，习相远"><a href="#性相近，习相远" class="headerlink" title="性相近，习相远"></a>性相近，习相远</h5><h5 id="对人立法严，执法宽"><a href="#对人立法严，执法宽" class="headerlink" title="对人立法严，执法宽"></a>对人立法严，执法宽</h5><h2 id="中国的兵法的特征"><a href="#中国的兵法的特征" class="headerlink" title="中国的兵法的特征"></a>中国的兵法的特征</h2><blockquote>
@@ -304,20 +220,8 @@
 <p>不拘小节，能综合看大体<br> 不拘泥相对性的一面<br> 不因小失大，看近不看远</p>
 </blockquote>
 <h2 id="人事管理八大要领"><a href="#人事管理八大要领" class="headerlink" title="人事管理八大要领"></a>人事管理八大要领</h2><h5 id="进退（好聚好散）"><a href="#进退（好聚好散）" class="headerlink" title="进退（好聚好散）"></a>进退（好聚好散）</h5><h5 id="奖惩（先奖下面先罚上面）"><a href="#奖惩（先奖下面先罚上面）" class="headerlink" title="奖惩（先奖下面先罚上面）"></a>奖惩（先奖下面先罚上面）</h5><h5 id="教养"><a href="#教养" class="headerlink" title="教养"></a>教养</h5><h5 id="老死"><a href="#老死" class="headerlink" title="老死"></a>老死</h5>]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      人事管理：人的事物的管理，不太主观管人
-    
-    </summary>
-    
-      <category term="孙子兵法" scheme="http://blog.jybx.me/categories/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
-    
-    
-      <category term="孙子兵法" scheme="http://blog.jybx.me/tags/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
-    
-      <category term="孙武" scheme="http://blog.jybx.me/tags/%E5%AD%99%E6%AD%A6/"/>
-    
-  </entry>
   
-</feed>
+  
+</search>
