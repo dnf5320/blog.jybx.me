@@ -373,7 +373,7 @@
 <h2 id="淘宝-NPM-镜像"><a href="#淘宝-NPM-镜像" class="headerlink" title="淘宝 NPM 镜像"></a>淘宝 NPM 镜像</h2><p><a href="https://npm.taobao.org/" target="_blank" rel="external">https://npm.taobao.org/</a></p>
 <h2 id="使用-NPM-命令安装模块"><a href="#使用-NPM-命令安装模块" class="headerlink" title="使用 NPM 命令安装模块"></a>使用 NPM 命令安装模块</h2><p>从 <a href="http://npmjs.org" target="_blank" rel="external">http://npmjs.org</a> 维护的 public package registry 获取，模块可以使用 npm install 安装：<br><code>npm install &lt;moduleName&gt;</code></p>
 <h2 id="全局安装与本地安装"><a href="#全局安装与本地安装" class="headerlink" title="全局安装与本地安装"></a>全局安装与本地安装</h2><p>npm 的包安装分为本地安装（local）、全局安装（global）两种，从敲的命令行来看，差别只是有没有-g而已，比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install express     # 本地安装</div><div class="line">npm install express -g   # 全局安装</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> express     <span class="comment"># 本地安装</span></div><div class="line">npm <span class="keyword">install</span> express -g   <span class="comment"># 全局安装</span></div></pre></td></tr></table></figure>
 <p>如果出现以下错误：<br><code>npm err! Error: connect ECONNREFUSED 127.0.0.1:8087</code></p>
 <p>解决办法为：<br><code>npm config set proxy null</code></p>
 <h2 id="查看所有全局安装的模块"><a href="#查看所有全局安装的模块" class="headerlink" title="查看所有全局安装的模块"></a>查看所有全局安装的模块</h2><p><code>npm ls -g</code></p>
