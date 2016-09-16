@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff81;
+  background: #21bd1c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2542,4 +2542,24 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: #e9ece5 !important;
+}
+#rewardButton {
+  outline: none;
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 5px 50px 3px;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  background: #f25f54;
+  border: 1px solid #f25f54;
+  box-shadow: 0px 4px 0px 0px #c93b30;
+}
+#rewardButton:hover {
+  background: #cf3e36;
+  border-color: #cf3e36;
+  box-shadow: 0px 4px 0px 0px #a0201a;
 }
