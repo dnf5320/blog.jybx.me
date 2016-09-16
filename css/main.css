@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffa770;
+  background: #ffffa8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2542,6 +2542,9 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+h1:nth-child(1) {
+  text-align: center !important;
 }
 ::selection {
   color: #fff;
