@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffd4;
+  background: #2b3c4b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2543,8 +2543,10 @@ body {
     text-align: justify;
   }
 }
-body {
-  background: #e9ece5 !important;
+::selection {
+  color: #fff;
+  background: #f4645f !important;
+  text-shadow: none;
 }
 #rewardButton {
   outline: none;
