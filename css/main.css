@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff1f63;
+  background: #ffff2a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2542,6 +2542,9 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  font-family: 'PingFang SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, 'Heiti SC', sans-serif;
 }
 .brand:nth-child(1) {
   color: #79e1c8 !important;

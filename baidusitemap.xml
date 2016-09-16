@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://blog.jybx.me/sunzibingfa.html</loc>
+    <lastmod>2016-09-16T09:05:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>孙子兵法</title>
+        <pubTime>2016-01-18T10:42:07.000Z</pubTime>
+        
+        <tag>孙子兵法</tag>
+         
+        <tag>孙武</tag>
+         
+         
+           
+             
+              <breadCrumb title="孙子兵法" url="http://blog.jybx.me/categories/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.jybx.me/hexo.html</loc>
     <lastmod>2016-09-16T07:40:28.000Z</lastmod>
     <data>
@@ -33,28 +55,6 @@
 
     
     
-    
-  <url>
-    <loc>http://blog.jybx.me/sunzibingfa.html</loc>
-    <lastmod>2016-09-14T15:30:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>孙子兵法</title>
-        <pubTime>2016-01-18T10:42:07.000Z</pubTime>
-        
-        <tag>孙子兵法</tag>
-         
-        <tag>孙武</tag>
-         
-         
-           
-             
-              <breadCrumb title="孙子兵法" url="http://blog.jybx.me/categories/%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://blog.jybx.me/Mac-Terminal-zsh.html</loc>
