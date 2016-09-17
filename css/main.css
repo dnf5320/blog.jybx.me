@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9e208b;
+  background: #cf11cc;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2603,4 +2603,10 @@ h1:nth-child(1) {
 code {
   background: #fdf6e3;
   margin: auto 3px;
+}
+table>tbody>tr:nth-of-type(odd) {
+  background: none;
+}
+table>tbody>tr:nth-of-type(odd):hover {
+  background: none;
 }
