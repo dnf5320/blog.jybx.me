@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.jybx.me/"/>
-  <updated>2016-09-14T15:04:41.000Z</updated>
+  <updated>2016-09-17T08:48:56.000Z</updated>
   <id>http://blog.jybx.me/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac 如何优雅的使用 phpStorm</title>
+    <link href="http://blog.jybx.me/mac-phpstorm-key.html"/>
+    <id>http://blog.jybx.me/mac-phpstorm-key.html</id>
+    <published>2016-09-17T08:38:47.000Z</published>
+    <updated>2016-09-17T08:48:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="how-to-be-awesome-in-phpstorm"><a href="#how-to-be-awesome-in-phpstorm" class="headerlink" title="how-to-be-awesome-in-phpstorm"></a>how-to-be-awesome-in-phpstorm</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官方下载地址：<a href="http://www.jetbrains.com/phpstorm/" target="_blank" rel="external">http://www.jetbrains.com/phpstorm/</a></p>
+<h2 id="command-1-1-是数字"><a href="#command-1-1-是数字" class="headerlink" title="command + 1 (1 是数字)"></a>command + 1 (1 是数字)</h2><p>显示关闭左侧</p>
+<h2 id="command-鼠标点击"><a href="#command-鼠标点击" class="headerlink" title="command + 鼠标点击"></a>command + 鼠标点击</h2><p>跳到类或方法或变量等声明处</p>
+<h2 id="command-shift-tab"><a href="#command-shift-tab" class="headerlink" title="command + shift + tab"></a>command + shift + tab</h2><p>切换tab页文件</p>
+<h2 id="command-shift"><a href="#command-shift" class="headerlink" title="command + shift + +,-"></a>command + shift + +,-</h2><p>展开或缩起</p>
+<h2 id="command"><a href="#command" class="headerlink" title="command + ."></a>command + .</h2><p>折叠或展开选中的代码</p>
+<h2 id="command-o"><a href="#command-o" class="headerlink" title="command + o"></a>command + o</h2><p>搜索类名的控制器</p>
+<h2 id="command-option-o"><a href="#command-option-o" class="headerlink" title="command + option + o"></a>command + option + o</h2><p>搜索控制器中的方法</p>
+<h2 id="command-shift-＋-a"><a href="#command-shift-＋-a" class="headerlink" title="command + shift ＋ a"></a>command + shift ＋ a</h2><p>搜索配置项， 比如 tab，top，plugins（安装插件），keymap<br>修改左侧的代码折叠线 folding outline</p>
+<h2 id="command-＋-，"><a href="#command-＋-，" class="headerlink" title="command ＋ ，"></a>command ＋ ，</h2><p>打开配置搜索 breadcrumbs，去掉勾保存，就是去掉了页面的面包屑</p>
+<h2 id="command-＋-control-＋-g"><a href="#command-＋-control-＋-g" class="headerlink" title="command ＋ control ＋ g"></a>command ＋ control ＋ g</h2><p>选中相同的代码 </p>
+<h2 id="字体大小设置"><a href="#字体大小设置" class="headerlink" title="字体大小设置"></a>字体大小设置</h2><p><img src="http://api.jybx.me/font-size-1.png" alt="font-size"></p>
+<h2 id="Ide-配色"><a href="#Ide-配色" class="headerlink" title="Ide 配色"></a>Ide 配色</h2><p><a href="http://daylerees.github.io/" target="_blank" rel="external">主题网址</a><br>在上面的网址中挑选你喜欢的配色名字，在 <a href="https://github.com/daylerees/colour-schemes/blob/master/jetbrains/" target="_blank" rel="external">这里</a> 选择你的配置文件<br><code>cd ~/Library/Preferences/PhpStorm2016.1</code><br>PhpStorm2016.1 因你的文件名不同而改变<br><code>cd colors</code><br><code>wget https://raw.githubusercontent.com/daylerees/colour-schemes/master/jetbrains/gloom.icls</code></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gloom.icls          <span class="number">100</span>%[===================&gt;]  <span class="number">51.48</span>K  <span class="number">96.1</span>KB/s    in <span class="number">0.5</span>s</div></pre></td></tr></table></figure>
+<p>表明已下载成功！<br>重启 ide 就可以查看到<br><img src="http://api.jybx.me/gloom.png" alt="gloom"></p>
+<h2 id="去掉标签栏"><a href="#去掉标签栏" class="headerlink" title="去掉标签栏"></a>去掉标签栏</h2><p>去掉 Top 上的勾<br><img src="http://api.jybx.me/top.png" alt="top"></p>
+<h2 id="统一左侧目录和右侧代码区域的颜色"><a href="#统一左侧目录和右侧代码区域的颜色" class="headerlink" title="统一左侧目录和右侧代码区域的颜色"></a>统一左侧目录和右侧代码区域的颜色</h2><p><code>command＋，</code><br>搜索 plugins，点中间的，搜索 color ide 安装<br><img src="http://api.jybx.me/color-ide.png" alt="color-ide"></p>
+<h2 id="修改快捷键"><a href="#修改快捷键" class="headerlink" title="修改快捷键"></a>修改快捷键</h2><p>File -&gt; Settings -&gt; IDE Settings -&gt; Keymap -&gt; 选择“eclipse” -&gt; 然后 “Copy” 一份 -&gt; 再个性化设置（自己习惯的）快捷键<br>同上搜索 keymap<br><img src="http://api.jybx.me/keymap.png" alt="keymap"></p>
+<p><img src="http://api.jybx.me/reset.png" alt="reset"></p>
+<p><img src="http://api.jybx.me/file.png" alt="file"></p>
+<p><img src="http://api.jybx.me/fangfa.png" alt="fangfa"></p>
+<p>按 <code>command R</code> 调出此页面<br><img src="http://api.jybx.me/functions.png" alt="functions"></p>
+<h2 id="快速创建文件夹及目录"><a href="#快速创建文件夹及目录" class="headerlink" title="快速创建文件夹及目录"></a>快速创建文件夹及目录</h2><p><code>command ⬆️</code> 方向键上，选择你要在哪里创建<br><code>command N</code></p>
+<h2 id="继承-Model"><a href="#继承-Model" class="headerlink" title="继承 Model"></a>继承 Model</h2><p><img src="http://api.jybx.me/model.png" alt="mode"></p>
+<p><img src="http://api.jybx.me/extends-1.png" alt="extends"></p>
+<p><img src="http://api.jybx.me/touch.png" alt="touch"></p>
+<p><img src="http://api.jybx.me/my.png" alt="my"></p>
+<h2 id="进行-PHP-代码风格设置"><a href="#进行-PHP-代码风格设置" class="headerlink" title="进行 PHP 代码风格设置"></a>进行 PHP 代码风格设置</h2><p><img src="http://api.jybx.me/style.png" alt="style"></p>
+<h2 id="快速修改文件名字"><a href="#快速修改文件名字" class="headerlink" title="快速修改文件名字"></a>快速修改文件名字</h2><p><code>control T</code><br><img src="http://api.jybx.me/rename.png" alt="rename"></p>
+<h2 id="Copy-为接口"><a href="#Copy-为接口" class="headerlink" title="Copy 为接口"></a>Copy 为接口</h2><p><img src="http://api.jybx.me/inter-1.png" alt="inte"></p>
+<h2 id="定义为变量"><a href="#定义为变量" class="headerlink" title="定义为变量"></a>定义为变量</h2><p><img src="http://api.jybx.me/var.png" alt="va"></p>
+<p><img src="http://api.jybx.me/str.png" alt="st"></p>
+<h2 id="快速创建-PHP-construct-函数"><a href="#快速创建-PHP-construct-函数" class="headerlink" title="快速创建 PHP __construct() 函数"></a>快速创建 PHP __construct() 函数</h2><p><img src="http://api.jybx.me/constr.png" alt="const"></p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p><img src="http://api.jybx.me/con.png" alt="con"></p>
+<p>option ＋ 回车<br><img src="http://api.jybx.me/class.png" alt="class"></p>
+<p><img src="http://api.jybx.me/code.png" alt="code"></p>
+<h2 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h2><p><img src="http://api.jybx.me/split.png" alt="split"></p>
+<p><code>command w</code> 关闭分屏<br>你也可以为它们设置快捷键</p>
+<h2 id="快速添加-namespace"><a href="#快速添加-namespace" class="headerlink" title="快速添加 namespace"></a>快速添加 namespace</h2><p><img src="http://api.jybx.me/name.png" alt="name"></p>
+<p><img src="http://api.jybx.me/php.png" alt="php"></p>
+<h2 id="如何导出个性化设置，备份或给他人用？"><a href="#如何导出个性化设置，备份或给他人用？" class="headerlink" title="如何导出个性化设置，备份或给他人用？"></a>如何导出个性化设置，备份或给他人用？</h2><ul>
+<li>导出：File -&gt; Exporting Settings</li>
+<li>导入：File -&gt; Importing Settings</li>
+</ul>
+<h2 id="mac-下直接用命令行模式下载-Composer"><a href="#mac-下直接用命令行模式下载-Composer" class="headerlink" title="mac 下直接用命令行模式下载 Composer"></a>mac 下直接用命令行模式下载 Composer</h2><ul>
+<li>使用 curl 指令下载：<blockquote>
+<p>curl -sS <a href="https://getcomposer.org/installer" target="_blank" rel="external">https://getcomposer.org/installer</a> | php</p>
+</blockquote>
+</li>
+<li>或是沒有安裝 curl ，也可以用 php 指令下载：<blockquote>
+<p>php -r “readfile(‘<a href="https://getcomposer.org/installer" target="_blank" rel="external">https://getcomposer.org/installer</a>‘);” | php</p>
+</blockquote>
+</li>
+<li>手动下载 Composer<blockquote>
+<p><a href="https://getcomposer.org/composer.phar" target="_blank" rel="external">https://getcomposer.org/composer.phar</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="mv-composer-phar-usr-local-bin-composer"><a href="#mv-composer-phar-usr-local-bin-composer" class="headerlink" title="mv composer.phar /usr/local/bin/composer"></a>mv composer.phar /usr/local/bin/composer</h2>]]></content>
+    
+    <summary type="html">
+    
+      PhpStorm是一个轻量级且便捷的PHP IDE，其旨在提供用户效率，可深刻理解用户的编码，提供智能代码补全，快速导航以及即时错误检查。
+    
+    </summary>
+    
+      <category term="phpStorm" scheme="http://blog.jybx.me/categories/phpStorm/"/>
+    
+    
+      <category term="phpStorm" scheme="http://blog.jybx.me/tags/phpStorm/"/>
+    
+  </entry>
   
   <entry>
     <title>npm javascript 包管理</title>
