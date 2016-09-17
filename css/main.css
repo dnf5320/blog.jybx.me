@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8f30b3;
+  background: #ffffdb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2607,5 +2607,8 @@ table>tbody>tr:nth-of-type(odd) {
   background: none;
 }
 table>tbody>tr:nth-of-type(odd):hover {
+  background: none;
+}
+pre {
   background: none;
 }
