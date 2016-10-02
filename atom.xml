@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.jybx.me/"/>
-  <updated>2016-09-17T08:48:56.000Z</updated>
+  <updated>2016-10-02T15:45:46.000Z</updated>
   <id>http://blog.jybx.me/</id>
   
   <author>
@@ -14,6 +14,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Composer -- PHP 依赖管理的新时代</title>
+    <link href="http://blog.jybx.me/composer.html"/>
+    <id>http://blog.jybx.me/composer.html</id>
+    <published>2016-10-02T15:43:39.000Z</published>
+    <updated>2016-10-02T15:45:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Composer-–-PHP-依赖管理的新时代"><a href="#Composer-–-PHP-依赖管理的新时代" class="headerlink" title="Composer – PHP 依赖管理的新时代"></a>Composer – PHP 依赖管理的新时代</h1><blockquote>
+<p>Composer 是 PHP 中的一个依赖管理工具. 它可以让你声明自己项目所依赖的库，然后它将会在项目中为你安装这些库。Composer 不是包管理器。是的，它实际上和”包”或者库打交道，但是它是以项目为单位进行管理，把它们安装到你项目中的一个目录（例如 vendor ）。默认情况下它不会以全局的方式安装任何东西。因此，它是一个依赖管理器。</p>
+</blockquote>
+<h2 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h2><p><a href="http://pkg.phpcomposer.com/" target="_blank" rel="external">http://pkg.phpcomposer.com/</a></p>
+<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><p>Composer 需要 PHP 5.3.2+ 才能运行。<br>你可以把这个文件放到任何你想放的地方。如果你把它放到你的 PATH 中，你就可以全局访问它了。在类 unix 系统中你甚至可以使它可执行，并且调用的时候不需要 php。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -sS <span class="string">https:</span><span class="comment">//getcomposer.org/installer | php</span></div><div class="line">sudo mv composer.phar <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>composer</div></pre></td></tr></table></figure>
+<p>然后，只需要执行 composer 命令来运行 <code>Composer</code>，而不是 php composer.phar。</p>
+<h2 id="Windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a>Windows 安装</h2><p>下载安装 <a href="https://getcomposer.org/Composer-Setup.exe" target="_blank" rel="external">https://getcomposer.org/Composer-Setup.exe</a><br>它将安装最新版本的 Composer ，并设置好系统的环境变量，因此你可以在任何目录下直接使用 composer 命令。</p>
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><p>设置系统的环境变量 PATH 并运行安装命令下载 composer.phar 文件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">C:</span>\Users\username&gt;cd <span class="string">C:</span>\bin</div><div class="line"><span class="string">C:</span>\bin&gt;php -r <span class="string">"readfile('https://getcomposer.org/installer');"</span> | php</div></pre></td></tr></table></figure>
+<p>详情请查看手册文档 <a href="http://docs.phpcomposer.com/00-intro.html#Installation-Windows" target="_blank" rel="external">点击查看</a></p>
+<h2 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h2><p><code>composer --version</code></p>
+<h2 id="保持-Composer-一直是最新版本"><a href="#保持-Composer-一直是最新版本" class="headerlink" title="保持 Composer 一直是最新版本"></a>保持 Composer 一直是最新版本</h2><p><code>composer selfupdate</code></p>
+<h2 id="在-mac-中用命令行时用-sublime-打开文件"><a href="#在-mac-中用命令行时用-sublime-打开文件" class="headerlink" title="在 mac 中用命令行时用 sublime 打开文件"></a>在 mac 中用命令行时用 sublime 打开文件</h2><p>如果是在默认 shell 下<br><code>sudo ln -s &quot;/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl&quot; /usr/bin/subl</code></p>
+<p>使用 zsh 的可以使用以下命令<br><code>vi ~/.zshrc</code></p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="string">"'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"</span></div><div class="line"><span class="keyword">alias</span> <span class="title">nano</span>=<span class="string">"subl"</span></div><div class="line">export EDITOR=<span class="string">"subl"</span></div></pre></td></tr></table></figure>
+<p><code>source ~/.zshrc</code></p>
+<h2 id="声明依赖"><a href="#声明依赖" class="headerlink" title="声明依赖"></a>声明依赖</h2><p>创建一个文件夹 test<br>在项目目录下创建一个 composer.json 文件，指明依赖，比如，你的项目依赖 monolog：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"require"</span> : &#123;</div><div class="line">    <span class="attr">"monolog/monolog"</span> : <span class="string">"1.2.*"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>安装依赖非常简单，只需在项目目录下运行：<br><code>composer install</code></p>
+<h2 id="自动加载"><a href="#自动加载" class="headerlink" title="自动加载"></a>自动加载</h2><p>Composer 提供了自动加载的特性，只需在你的代码的初始化部分中加入下面一行：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span> <span class="string">'vendor/autoload.php'</span>;</div></pre></td></tr></table></figure>
+<h2 id="列出所有可用的软件包"><a href="#列出所有可用的软件包" class="headerlink" title="列出所有可用的软件包"></a>列出所有可用的软件包</h2><p><code>composer show</code></p>
+<p>展示-参数</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">-installed (-i): 列出已安装的依赖包。</span></div><div class="line">-<span class="ruby">-platform (-p): 仅列出平台软件包（PHP 与它的扩展）。</span></div><div class="line">-<span class="ruby">-<span class="keyword">self</span> (-s): 仅列出当前项目信息。</span></div></pre></td></tr></table></figure>
+<h2 id="composer-常用命令"><a href="#composer-常用命令" class="headerlink" title="composer 常用命令"></a>composer 常用命令</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">composer list  列出所有可用的命令</div><div class="line">composer init   初始化 composer<span class="selector-class">.json</span> 文件(就不劳我们自己费力创建啦)，会要求输入一些信息来描述我们当前的项目，还会要求输入依赖包</div><div class="line">composer install  读取 composer<span class="selector-class">.json</span> 内容，解析依赖关系，安装依赖包到vendor目录下</div><div class="line">composer update   更新最新的依赖关系到 compsoer<span class="selector-class">.lock</span> 文件，解析最新的依赖关系并且写入composer.lock文件</div><div class="line">composer search packagename 搜索包，packagename 替换为你想查找的包名称</div><div class="line">composer require packagename 添加对 packagename 的依赖，packagename 可修改为你想要的包名称</div><div class="line">composer show packagename</div><div class="line">composer self-update 更新 composer<span class="selector-class">.phar</span>  文件自身</div><div class="line"></div><div class="line">composer command --help 以上所有命令都可以添加 --help选项查看帮助信息</div></pre></td></tr></table></figure>
+<p>更多命令行，请看 <a href="http://docs.phpcomposer.com/03-cli.html" target="_blank" rel="external">http://docs.phpcomposer.com/03-cli.html</a></p>
+<h2 id="创建项目-create-project"><a href="#创建项目-create-project" class="headerlink" title="创建项目 create-project"></a>创建项目 create-project</h2><p><code>composer create-project laravel/laravel</code></p>
+<h2 id="模块仓库"><a href="#模块仓库" class="headerlink" title="模块仓库"></a>模块仓库</h2><p><a href="https://packagist.org/" target="_blank" rel="external">packagist.org</a> 是 Composer 的仓库，很多著名的 PHP 库都能在其中找到。你也可以提交你自己的作品。</p>
+<h2 id="在-packagist-中提交项目"><a href="#在-packagist-中提交项目" class="headerlink" title="在 packagist 中提交项目"></a>在 packagist 中提交项目</h2><p>在 <a href="https://github.com/" target="_blank" rel="external">https://github.com/</a> 中上传项目：<br>在文件夹中创建 composer.json ，内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"yourname/demo"</span>,</div><div class="line">    <span class="attr">"description"</span>: <span class="string">"this is a test"</span>,</div><div class="line">    <span class="attr">"type"</span>: <span class="string">"project"</span>,</div><div class="line">    <span class="attr">"license"</span>: <span class="string">"mit"</span>,</div><div class="line">    <span class="attr">"authors"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"name"</span>: <span class="string">"yourname"</span>,</div><div class="line">            <span class="attr">"email"</span>: <span class="string">"yourname@126.com"</span></div><div class="line">        &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">"minimum-stability"</span>: <span class="string">"dev"</span>,</div><div class="line">    <span class="attr">"require"</span>: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然你也可以直接 <code>composer init</code> 进行一步步填写</p>
+<ol>
+<li><p>先登录<br><img src="http://api.jybx.me/submit.png" alt="submit"></p>
+</li>
+<li><p>点击 submit 进行提交你在 github 上传好的项目链接<br><img src="http://api.jybx.me/login.png" alt="login"></p>
+</li>
+</ol>
+<h2 id="composer-整合-github-实现自动推送"><a href="#composer-整合-github-实现自动推送" class="headerlink" title="composer 整合 github 实现自动推送"></a>composer 整合 github 实现自动推送</h2><ul>
+<li>先在 packagist 上获取 token<br><img src="http://api.jybx.me/token1.png" alt="token1"></li>
+</ul>
+<p><img src="http://api.jybx.me/api.png" alt="api"></p>
+<ul>
+<li>再在 github 上你的项目上点击 settings<br><img src="http://api.jybx.me/setting.png" alt="setting"></li>
+</ul>
+<p><img src="http://api.jybx.me/token.png" alt="token"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Composer 是 PHP 中的一个依赖管理工具. 它可以让你声明自己项目所依赖的库，然后它将会在项目中为你安装这些库。
+    
+    </summary>
+    
+      <category term="composer" scheme="http://blog.jybx.me/categories/composer/"/>
+    
+      <category term="packagist" scheme="http://blog.jybx.me/categories/composer/packagist/"/>
+    
+    
+      <category term="composer" scheme="http://blog.jybx.me/tags/composer/"/>
+    
+      <category term="packagist" scheme="http://blog.jybx.me/tags/packagist/"/>
+    
+  </entry>
   
   <entry>
     <title>mac 如何优雅的使用 phpStorm</title>
