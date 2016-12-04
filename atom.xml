@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.jybx.me/"/>
-  <updated>2016-12-04T12:28:56.000Z</updated>
+  <updated>2016-12-04T12:42:41.000Z</updated>
   <id>http://blog.jybx.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.jybx.me/git.html"/>
     <id>http://blog.jybx.me/git.html</id>
     <published>2016-11-27T06:59:05.000Z</published>
-    <updated>2016-12-04T12:28:56.000Z</updated>
+    <updated>2016-12-04T12:42:41.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><blockquote>
 <p>GIT 是一款免费的、开源的、分布式的版本控制系统。每一个 GIT 克隆都是一个完整的文件库，含有全部历史记录和修订追踪能力。其最大特色就是“分支”及“合并”操作快速、简便。支持离线工作，GIT 是整个项目范围的原子提交，而且 GIT 中的每个工作树都包含一个具有完整项目历史的仓库。</p>
