@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.jybx.me/git.html</loc>
+    
+    <lastmod>2016-12-04T12:28:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.jybx.me/composer.html</loc>
     
-    <lastmod>2016-10-02T15:45:46.000Z</lastmod>
+    <lastmod>2016-10-04T07:32:33.000Z</lastmod>
     
   </url>
   

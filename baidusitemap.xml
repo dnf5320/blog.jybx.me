@@ -4,8 +4,38 @@
 
     
   <url>
+    <loc>http://blog.jybx.me/git.html</loc>
+    <lastmod>2016-12-04T12:28:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>git</title>
+        <pubTime>2016-11-27T06:59:05.000Z</pubTime>
+        
+        <tag>composer</tag>
+         
+        <tag>packagist</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="composer" url="http://blog.jybx.me/categories/composer/"/>
+          
+             
+              <breadCrumb title="packagist" url="http://blog.jybx.me/categories/composer/packagist/"/>
+          
+             
+              <breadCrumb title="git" url="http://blog.jybx.me/categories/composer/packagist/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.jybx.me/composer.html</loc>
-    <lastmod>2016-10-02T15:45:46.000Z</lastmod>
+    <lastmod>2016-10-04T07:32:33.000Z</lastmod>
     <data>
         <display>
         <title>Composer -- PHP 依赖管理的新时代</title>
