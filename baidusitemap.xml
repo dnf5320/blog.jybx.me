@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://blog.jybx.me/browsersync.html</loc>
+    <lastmod>2016-12-17T11:05:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>Browsersync</title>
+        <pubTime>2016-12-01T10:08:38.000Z</pubTime>
+        
+        <tag>npm</tag>
+         
+        <tag>browsersync</tag>
+         
+        <tag>gulp</tag>
+         
+         
+           
+             
+              <breadCrumb title="npm" url="http://blog.jybx.me/categories/npm/"/>
+          
+             
+              <breadCrumb title="browsersync" url="http://blog.jybx.me/categories/npm/browsersync/"/>
+          
+             
+              <breadCrumb title="gulp" url="http://blog.jybx.me/categories/npm/browsersync/gulp/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.jybx.me/git.html</loc>
     <lastmod>2016-12-04T12:42:41.000Z</lastmod>
     <data>
