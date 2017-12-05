@@ -87,11 +87,13 @@
 
 
 <meta name="description" content="Mac Terminal 终端 配置 zsh">
+<meta name="keywords" content="Mac,Terminal,Zsh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac Terminal 终端 配置 zsh">
 <meta property="og:url" content="http://blog.jybx.me/Mac-Terminal-zsh.html">
 <meta property="og:site_name" content="一个人住的七年">
 <meta property="og:description" content="Mac Terminal 终端 配置 zsh">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-09-14T15:12:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac Terminal 终端 配置 zsh">
@@ -377,13 +379,13 @@
 
       
         <h1 id="Mac-Terminal-终端-配置-zsh"><a href="#Mac-Terminal-终端-配置-zsh" class="headerlink" title="Mac Terminal 终端 配置 zsh"></a>Mac Terminal 终端 配置 zsh</h1><h2 id="Mac-自带-zsh，还是比较方便的哈"><a href="#Mac-自带-zsh，还是比较方便的哈" class="headerlink" title="Mac 自带 zsh，还是比较方便的哈"></a>Mac 自带 zsh，还是比较方便的哈</h2><p>首先，把 Terminal 的 shell 改一下：<br><code>chsh -s /bin/zsh</code><br>修改下你的 Terminal 的 ‘偏好设置’</p>
-<h2 id="oh-my-zsh-安装"><a href="#oh-my-zsh-安装" class="headerlink" title="oh-my-zsh 安装"></a>oh-my-zsh 安装</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh 安装</a></p>
+<h2 id="oh-my-zsh-安装"><a href="#oh-my-zsh-安装" class="headerlink" title="oh-my-zsh 安装"></a>oh-my-zsh 安装</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh 安装</a></p>
 <ol>
 <li><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code></li>
 <li><code>cp ~/.zshrc ~/.zshrc.orig</code>   (此步可选)</li>
 <li><code>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</code></li>
 </ol>
-<h2 id="zsh-autosuggestions-安装自动提示"><a href="#zsh-autosuggestions-安装自动提示" class="headerlink" title="zsh-autosuggestions 安装自动提示"></a>zsh-autosuggestions 安装自动提示</h2><p><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="external">zsh-autosuggestions 安装自动提示</a></p>
+<h2 id="zsh-autosuggestions-安装自动提示"><a href="#zsh-autosuggestions-安装自动提示" class="headerlink" title="zsh-autosuggestions 安装自动提示"></a>zsh-autosuggestions 安装自动提示</h2><p><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions 安装自动提示</a></p>
 <ol>
 <li><code>git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions</code></li>
 <li>编辑 .zshrc 添加 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh</li>
@@ -394,7 +396,7 @@
 </code></pre><p>注释原来的并添加下一句：</p>
 </blockquote>
 <pre><code>PROMPT=&apos;${ret_status}%M%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %     %{$reset_color%}&apos;
-</code></pre><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">oh-my-zsh 主题自选</a></p>
+</code></pre><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh 主题自选</a></p>
 <blockquote>
 <p>编辑 .zshrc<br><strong>修改 ZSH_THEME=robbyrussell</strong><br>执行 <code>source .zshrc</code> </p>
 </blockquote>
@@ -565,7 +567,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -582,7 +584,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -624,7 +626,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-Terminal-终端-配置-zsh"><span class="nav-number">1.</span> <span class="nav-text">Mac Terminal 终端 配置 zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-自带-zsh，还是比较方便的哈"><span class="nav-number">1.1.</span> <span class="nav-text">Mac 自带 zsh，还是比较方便的哈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh-安装"><span class="nav-number">1.2.</span> <span class="nav-text">oh-my-zsh 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh-autosuggestions-安装自动提示"><span class="nav-number">1.3.</span> <span class="nav-text">zsh-autosuggestions 安装自动提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加主机名"><span class="nav-number">1.4.</span> <span class="nav-text">添加主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.5.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh-不能更新方法"><span class="nav-number">1.6.</span> <span class="nav-text">oh-my-zsh 不能更新方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-Terminal-终端-配置-zsh"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Mac-Terminal-&#x7EC8;&#x7AEF;-&#x914D;&#x7F6E;-zsh" class="headerlink" title="Mac Terminal &#x7EC8;&#x7AEF; &#x914D;&#x7F6E; zsh"></a>Mac Terminal &#x7EC8;&#x7AEF; &#x914D;&#x7F6E; zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-自带-zsh，还是比较方便的哈"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Mac-&#x81EA;&#x5E26;-zsh&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x7684;&#x54C8;" class="headerlink" title="Mac &#x81EA;&#x5E26; zsh&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x7684;&#x54C8;"></a>Mac &#x81EA;&#x5E26; zsh&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x7684;&#x54C8;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh-安装"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#oh-my-zsh-&#x5B89;&#x88C5;" class="headerlink" title="oh-my-zsh &#x5B89;&#x88C5;"></a>oh-my-zsh &#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh-autosuggestions-安装自动提示"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#zsh-autosuggestions-&#x5B89;&#x88C5;&#x81EA;&#x52A8;&#x63D0;&#x793A;" class="headerlink" title="zsh-autosuggestions &#x5B89;&#x88C5;&#x81EA;&#x52A8;&#x63D0;&#x793A;"></a>zsh-autosuggestions &#x5B89;&#x88C5;&#x81EA;&#x52A8;&#x63D0;&#x793A;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加主机名"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#&#x6DFB;&#x52A0;&#x4E3B;&#x673A;&#x540D;" class="headerlink" title="&#x6DFB;&#x52A0;&#x4E3B;&#x673A;&#x540D;"></a>&#x6DFB;&#x52A0;&#x4E3B;&#x673A;&#x540D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#&#x4E3B;&#x9898;" class="headerlink" title="&#x4E3B;&#x9898;"></a>&#x4E3B;&#x9898;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh-不能更新方法"><span class="nav-number">1.6.</span> <span class="nav-text"><a href="#oh-my-zsh-&#x4E0D;&#x80FD;&#x66F4;&#x65B0;&#x65B9;&#x6CD5;" class="headerlink" title="oh-my-zsh &#x4E0D;&#x80FD;&#x66F4;&#x65B0;&#x65B9;&#x6CD5;"></a>oh-my-zsh &#x4E0D;&#x80FD;&#x66F4;&#x65B0;&#x65B9;&#x6CD5;</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

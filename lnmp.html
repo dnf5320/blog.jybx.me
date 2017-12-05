@@ -1,0 +1,960 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="lnmp," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一个人住的七年" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://api.jybx.me/187066.jpg?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Centos 7 下安装 LNMP 官方最新版">
+<meta name="keywords" content="lnmp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lnmp">
+<meta property="og:url" content="http://blog.jybx.me/lnmp.html">
+<meta property="og:site_name" content="一个人住的七年">
+<meta property="og:description" content="Centos 7 下安装 LNMP 官方最新版">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-05T13:42:35.281Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lnmp">
+<meta name="twitter:description" content="Centos 7 下安装 LNMP 官方最新版">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6238452984271865000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.jybx.me/lnmp.html"/>
+
+  <title> lnmp | 一个人住的七年 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d67973c483c7194fb4973ed65b6ebdab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一个人住的七年</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">做自己喜欢的事，会遇见喜欢的人。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                lnmp
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-05T11:25:25+08:00" content="2017-05-05">
+              2017-05-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/lnmp.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="lnmp.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Centos-7-下安装-LNMP-官方最新版"><a href="#Centos-7-下安装-LNMP-官方最新版" class="headerlink" title="Centos 7 下安装 LNMP 官方最新版"></a>Centos 7 下安装 LNMP 官方最新版</h1><h2 id="软件版本"><a href="#软件版本" class="headerlink" title="软件版本"></a>软件版本</h2><blockquote>
+<p>Nginx 版本: nginx 1.13.0<br>Mysql 版本：mysql 5.7.18<br>PHP 版本：php 7.1.5</p>
+<p>查看 CentOS 版本号<br>cat /etc/redhat-release</p>
+<p>Centos 版本：CentOS Linux release &gt;7.3.1611 (Core) 64位</p>
+</blockquote>
+<h3 id="软件更新"><a href="#软件更新" class="headerlink" title="软件更新"></a>软件更新</h3><p>阿里云 ECS 不建议升级服务器的内核和操作系统版本，所以，在进行系统软件更新操作时，应该将其剔除。</p>
+<p>下面是查看服务器内核及系统版本，可以看一下在软件升级前后，剔除与否的区别。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -<span class="keyword">a</span></span><br><span class="line">lsb_release -<span class="keyword">a</span></span><br></pre></td></tr></table></figure>
+<p>首先打开 /etc/yum.conf （vi /etc/yum.conf ）文件，然后在 [main] 后面加入以下两行代码，这样在软件更新时，就不会升级内核及系统版本了。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">exclude</span>=kernel*</span><br><span class="line"><span class="attr">exclude</span>=centos-release*</span><br></pre></td></tr></table></figure>
+<p>然后更新软件，-y 参数是在执行过程中，遇到的交互默认选择 yes ，如果想看一下软件的更新信息，可以去掉 -y 参数。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum -y update</span></span><br></pre></td></tr></table></figure>
+<h3 id="主机名修改"><a href="#主机名修改" class="headerlink" title="主机名修改"></a>主机名修改</h3><p>查看主机名指令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hostname</span></span><br></pre></td></tr></table></figure>
+<p>阿里云 ECS 默认的主机名是随机生成的，看着不是特别舒服，可以修改 /etc/hostname 文件，将现在的主机名改成自己想要的名称。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/<span class="built_in">hostname</span></span><br></pre></td></tr></table></figure>
+<p>然后，按 ESC 输入 :wq 保存（vim 基本指令）。reboot（重启），看一下主机名是否已经变更。</p>
+<h3 id="配置第三方-yum-源"><a href="#配置第三方-yum-源" class="headerlink" title="配置第三方 yum 源"></a>配置第三方 yum 源</h3><p>安装 centos7 的源</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> epel-<span class="keyword">release</span></span><br><span class="line">rpm -ivh <span class="keyword">http</span>://rpms.famillecollet.com/<span class="keyword">enterprise</span>/remi-<span class="keyword">release</span><span class="number">-7.</span>rpm</span><br></pre></td></tr></table></figure>
+<h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> nginx</span><br><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+<h3 id="使用-service-命令-操作-Nginx"><a href="#使用-service-命令-操作-Nginx" class="headerlink" title="使用 service 命令 操作 Nginx"></a>使用 service 命令 操作 Nginx</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service nginx <span class="built_in">start</span> <span class="comment"> //启动</span></span><br><span class="line">service nginx <span class="built_in">stop</span> <span class="comment"> //停止</span></span><br><span class="line">service nginx restart  <span class="comment"> //重启</span></span><br><span class="line">service nginx reload   <span class="comment"> //重新加载配置文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="Nginx-随开机自动启动"><a href="#Nginx-随开机自动启动" class="headerlink" title="Nginx 随开机自动启动"></a>Nginx 随开机自动启动</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br><span class="line"></span><br><span class="line">结果如下</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/<span class="class"><span class="keyword">lib</span>/<span class="title">systemd</span>/<span class="title">system</span>/<span class="title">nginx</span>.<span class="title">service</span>.</span></span><br></pre></td></tr></table></figure>
+<h3 id="Centos7-启动服务命令（启动-Nginx）"><a href="#Centos7-启动服务命令（启动-Nginx）" class="headerlink" title="Centos7 启动服务命令（启动 Nginx）"></a>Centos7 启动服务命令（启动 Nginx）</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> nginx</span><br></pre></td></tr></table></figure>
+<h3 id="查看-Nignx-状态"><a href="#查看-Nignx-状态" class="headerlink" title="查看 Nignx 状态"></a>查看 Nignx 状态</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nginx</span><br><span class="line"></span><br><span class="line">结果如下</span><br><span class="line">nginx.service - nginx - high performance web server</span><br><span class="line"><span class="symbol">   Loaded:</span> loaded (<span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/nginx.service; enabled; vendor <span class="string">preset:</span> disabled)</span><br><span class="line"><span class="symbol">   Active:</span> active (running) since Fri <span class="number">2017</span><span class="number">-05</span><span class="number">-12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> CST; <span class="number">50</span>s ago</span><br><span class="line"><span class="symbol">     Docs:</span> <span class="string">http:</span><span class="comment">//nginx.org/en/docs/</span></span><br><span class="line"><span class="symbol">  Process:</span> <span class="number">22179</span> ExecStart=<span class="regexp">/usr/</span>sbin<span class="regexp">/nginx -c /</span>etc<span class="regexp">/nginx/</span>nginx.conf (code=exited, status=<span class="number">0</span>/SUCCESS)</span><br><span class="line"><span class="symbol">  Process:</span> <span class="number">22178</span> ExecStartPre=<span class="regexp">/usr/</span>sbin<span class="regexp">/nginx -t -c /</span>etc<span class="regexp">/nginx/</span>nginx.conf (code=exited, status=<span class="number">0</span>/SUCCESS)</span><br><span class="line"> Main <span class="string">PID:</span> <span class="number">22182</span> (nginx)</span><br><span class="line"><span class="symbol">   CGroup:</span> <span class="regexp">/system.slice/</span>nginx.service</span><br><span class="line">           ├─<span class="number">22182</span> <span class="string">nginx:</span> master process <span class="regexp">/usr/</span>sbin<span class="regexp">/nginx -c /</span>etc<span class="regexp">/nginx/</span>nginx.conf</span><br><span class="line">           └─<span class="number">22183</span> <span class="string">nginx:</span> worker process</span><br><span class="line"></span><br><span class="line">May <span class="number">12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> iZ2zehs5ueqrbkxhzynwasZ systemd[<span class="number">1</span>]: Starting nginx - high performance web.....</span><br><span class="line">May <span class="number">12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> iZ2zehs5ueqrbkxhzynwasZ nginx[<span class="number">22178</span>]: <span class="string">nginx:</span> the configuration file <span class="regexp">/etc/</span>n...k</span><br><span class="line">May <span class="number">12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> iZ2zehs5ueqrbkxhzynwasZ nginx[<span class="number">22178</span>]: <span class="string">nginx:</span> configuration file <span class="regexp">/etc/</span>nginx...l</span><br><span class="line">May <span class="number">12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> iZ2zehs5ueqrbkxhzynwasZ systemd[<span class="number">1</span>]: Failed to read PID from file <span class="regexp">/run/</span>ngi...nt</span><br><span class="line">May <span class="number">12</span> <span class="number">17</span>:<span class="number">35</span>:<span class="number">13</span> iZ2zehs5ueqrbkxhzynwasZ systemd[<span class="number">1</span>]: Started nginx - high performance web ...r.</span><br><span class="line"><span class="string">Hint:</span> Some lines were ellipsized, use -l to show <span class="keyword">in</span> full.</span><br></pre></td></tr></table></figure>
+<h3 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h3><p>如果上述步骤结束后，没有看到欢迎页面，可能是防火墙配置造成的（80端口没有开放），Centos7 默认的防火墙是 FirewallD。</p>
+<p>查看防火墙运行状态</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --state</span></span><br></pre></td></tr></table></figure>
+<p>开启 FirewallD 服务</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> firewalld</span><br></pre></td></tr></table></figure>
+<p>查看 FirewallD 状态</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl status firewalld</span></span><br></pre></td></tr></table></figure>
+<p>查看 FirewallD 配置</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --list-all</span></span><br></pre></td></tr></table></figure>
+<p>开启端口</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd <span class="attribute">--zone</span>=public <span class="attribute">--add-port</span>=80/tcp --permanent</span><br><span class="line">firewall-cmd <span class="attribute">--zone</span>=public <span class="attribute">--add-port</span>=3306/tcp --permanent</span><br></pre></td></tr></table></figure>
+<p>命令含义</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">-zone <span class="comment">#作用域</span></span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line"><span class="ruby">--add-port=<span class="number">80</span>/tcp <span class="comment">#添加端口，格式为：端口/通讯协议</span></span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line"><span class="ruby">--permanent <span class="comment">#永久生效，没有此参数重启后失效</span></span></span><br></pre></td></tr></table></figure>
+<p>重启防火墙</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --reload</span></span><br></pre></td></tr></table></figure>
+<h3 id="MySQL-最新版安装"><a href="#MySQL-最新版安装" class="headerlink" title="MySQL 最新版安装"></a>MySQL 最新版安装</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh http://dev.mysql.com/get/mysql57-community-<span class="keyword">release</span>-el7<span class="number">-7.</span>noarch.rpm</span><br><span class="line"></span><br><span class="line">yum -y <span class="keyword">install</span> mysql-community-<span class="keyword">server</span> mysql-community-devel</span><br></pre></td></tr></table></figure>
+<p>MySQL 安装完成后配置文件会在这个路径 /etc/my.cnf 可以根据实际需要修改里边的选项。这里暂时不做任何修改，但有个选项是要注意的，因为后面配置 PHP 的时候讲会用到：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grep</span> socket <span class="regexp">/etc/my</span>.cnf</span><br><span class="line"></span><br><span class="line">结果如下</span><br><span class="line">socket=<span class="regexp">/var/</span>lib<span class="regexp">/mysql/my</span>sql.sock</span><br></pre></td></tr></table></figure>
+<h3 id="查看-MySQL-状态"><a href="#查看-MySQL-状态" class="headerlink" title="查看 MySQL 状态"></a>查看 MySQL 状态</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld</span><br><span class="line"></span><br><span class="line">结果如下</span><br><span class="line">mysqld.service - MySQL Server</span><br><span class="line"><span class="symbol">   Loaded:</span> loaded (<span class="meta-keyword">/usr/</span>lib<span class="meta-keyword">/systemd/</span>system/mysqld.service; enabled; vendor preset: disabled)</span><br><span class="line"><span class="symbol">   Active:</span> inactive (dead)</span><br><span class="line"><span class="symbol">     Docs:</span> man:mysqld(<span class="number">8</span>)</span><br><span class="line"><span class="symbol">           http:</span><span class="comment">//dev.mysql.com/doc/refman/en/using-systemd.html</span></span><br></pre></td></tr></table></figure>
+<h3 id="Mysql-添加到开机启动项"><a href="#Mysql-添加到开机启动项" class="headerlink" title="Mysql 添加到开机启动项"></a>Mysql 添加到开机启动项</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> mysqld</span><br></pre></td></tr></table></figure>
+<h3 id="启动-MySQL"><a href="#启动-MySQL" class="headerlink" title="启动 MySQL"></a>启动 MySQL</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> mysqld</span><br></pre></td></tr></table></figure>
+<p>MySQL 5.7 和之前版本很大区别是在安装后会自动为 root@localhost 用户设置一个随机初始密码，之前的版本密码为空的。那如何找到这个初始密码呢？网上很多文章说初始密码在这个文件中 /root/.mysql_secret 我不清楚早前的版本是不是这样，但 MySQL 5.7.11 并不然，而是保持到 error log 文件中。可以通过下面方法找到 MySQL 5.7 root 的初始密码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grep</span> <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">结果如下</span><br><span class="line"><span class="number">2017</span>-<span class="number">05</span>-<span class="number">12</span>T09:<span class="number">41</span>:<span class="number">44.686145</span>Z <span class="number">1</span> [Note] A temporary password <span class="keyword">is</span> generated <span class="keyword">for</span> root@localhos<span class="variable">t:</span> U4ygpaZyy(<span class="keyword">up</span></span><br></pre></td></tr></table></figure>
+<p>其中 U4ygpaZyy(up 就是密码。现在立即用这个密码登录 MySQL 并且修改密码（MySQL 5.7 版本对密码的安全性要求很严格，必须至少包含1个大写字母、1个小写字母、1个数字和1个特殊字符，长度不得小于8个字符）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'Aliyun2017.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> Host=<span class="string">'%'</span> <span class="keyword">where</span> HOST=<span class="string">'localhost'</span> <span class="keyword">and</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">CONCAT</span>(<span class="string">'User: '''</span>,<span class="keyword">user</span>,<span class="string">'''@'''</span>,host,<span class="string">''';'</span>) <span class="keyword">AS</span> <span class="keyword">query</span> <span class="keyword">FROM</span> mysql.user;</span><br><span class="line"></span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<p>mysql5.7 重置密码使用这个语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'abcabc'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span> <span class="keyword">and</span> Host = <span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure>
+<p>ps：如果 mysql 授权远程访问之后，访问还是失败。可能是由于防火墙和 selinux 没有关闭到底。<br>Centos7 关闭防火墙和 selinux 命令如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld<span class="selector-class">.service</span> </span><br><span class="line"></span><br><span class="line">systemctl stop firewalld<span class="selector-class">.service</span> </span><br><span class="line"></span><br><span class="line">sed -<span class="selector-tag">i</span> <span class="string">'s/SELINUX=enforcing/SELINUX=disabled/'</span> /etc/selinux/config</span><br><span class="line">setenforce <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="Navicat-远程连接阿里云上的-mysql"><a href="#Navicat-远程连接阿里云上的-mysql" class="headerlink" title="Navicat 远程连接阿里云上的 mysql"></a>Navicat 远程连接阿里云上的 mysql</h3><p>在 mysql 中输入命令，开启远程连接权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'YOUR_PASSWORD'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br></pre></td></tr></table></figure>
+<p>YOUR_PASSWORD 替换成你的mysql连接密码。</p>
+<p>该命令的具体意思可见阿里云官方说法：<a href="https://help.aliyun.com/knowledge_detail/40792.html" target="_blank" rel="noopener">官方</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">刷新权限</span><br><span class="line">flush privileges;</span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line"></span><br><span class="line">重启 mysql 服务</span><br><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+<h3 id="PHP7-最新版安装"><a href="#PHP7-最新版安装" class="headerlink" title="PHP7 最新版安装"></a>PHP7 最新版安装</h3><p>安装 REMI 仓库之前，首先安装 EPEL 仓库，因为 REMI 中的一些包依赖于 EPEL<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https:<span class="regexp">//</span>dl.fedoraproject.org<span class="regexp">/pub/</span>epel<span class="regexp">/epel-release-latest-7.noarch.rpm</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来安装 REMI 仓库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> <span class="keyword">http</span>://rpms.remirepo.net/<span class="keyword">enterprise</span>/remi-<span class="keyword">release</span><span class="number">-7.</span>rpm</span><br></pre></td></tr></table></figure>
+<p>再安装 yum 的配置管理工具，方便配置 yum 仓库</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> yum-utils</span><br></pre></td></tr></table></figure>
+<p>启用 remi-php71 仓库</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-<span class="built_in">config</span>-manager <span class="comment">--enable remi-php71</span></span><br></pre></td></tr></table></figure>
+<p>最后，安装 PHP</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install php</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">find</span> / -type f -name <span class="string">"php"</span> -print</span><br><span class="line"></span><br><span class="line">/opt/remi/php71/root/usr/bin/php</span><br></pre></td></tr></table></figure>
+<p>查看 PHP 版本以及扩展信息</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php <span class="comment">--v</span></span><br><span class="line">php <span class="comment">--m</span></span><br></pre></td></tr></table></figure>
+<p>安装 PHP-FPM，简单理解，PHP-FPM 是 FastCGI 的管理器，FastCGI 是处理 Nginx 转发过来的 PHP 脚本的。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> php-fpm</span><br></pre></td></tr></table></figure>
+<h3 id="配置-nginx-支持-php"><a href="#配置-nginx-支持-php" class="headerlink" title="配置 nginx 支持 php"></a>配置 nginx 支持 php</h3><p>将默认的配置文件作为配置文件</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cp</span> /etc/nginx/<span class="keyword">conf</span>.d/default.<span class="keyword">conf</span> <span class="keyword">abc</span>.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<p>进入nginx配置文件进行修改</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cp <span class="regexp">/etc/</span>nginx<span class="regexp">/conf.d/</span>abc.conf</span><br><span class="line"></span><br><span class="line">找到<span class="number">80</span>端口的配置，加入index.php</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">加入下面的配置代码，如果已经存在的，去掉注释，并修改,其中<span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html是web根目录的地址，可以根据自己的喜好进行选择，我一般放在<span class="regexp">/var/</span>www下</span><br><span class="line"></span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    root           <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html;</span><br><span class="line">    fastcgi_pass   <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>;</span><br><span class="line">    fastcgi_index  index.php;</span><br><span class="line">    fastcgi_param  SCRIPT_FILENAME  <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">    include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，编辑文件php.ini，在文件末尾添加cgi.fix_pathinfo = 1，已经存在的去掉注释就好了</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgi<span class="selector-class">.fix_pathinfo</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>重启nginx，启动php-fpm</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">systemctl</span> <span class="selector-tag">restart</span> <span class="selector-tag">nginx</span><span class="selector-class">.service</span></span><br><span class="line"><span class="selector-tag">systemctl</span> <span class="selector-tag">start</span> <span class="selector-tag">php-fpm</span><span class="selector-class">.service</span></span><br></pre></td></tr></table></figure>
+<p>设置php-fpm开机自启动</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> php-fpm.service</span><br><span class="line"></span><br><span class="line">netstat -antp</span><br></pre></td></tr></table></figure>
+<h3 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> redis php-pecl-redis</span><br></pre></td></tr></table></figure>
+<p>把Redis添加到开机启动服务中：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service redis start</span><br><span class="line"></span><br><span class="line">systemctl <span class="builtin-name">enable</span> redis.service</span><br></pre></td></tr></table></figure>
+<p>检查Redis是否运行：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">is</span>-active redis.service</span><br></pre></td></tr></table></figure>
+<p>重启php-fpm：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service php-fpm restart</span></span><br></pre></td></tr></table></figure>
+<h3 id="源码编译安装-Git"><a href="#源码编译安装-Git" class="headerlink" title="源码编译安装 Git"></a>源码编译安装 Git</h3><p>centos 自带 git，7.x版本自带 git 1.8.3.1<br>在 Linux 中有的需要先卸载原来自带的 Git</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure>
+<p>安装 <a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">Git</a> 的依赖包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> dh-autoreconf curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+<p>为了能支持多种格式的文档也需要安装一些额外的包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> asciidoc xmlto docbook2X getopt</span><br></pre></td></tr></table></figure>
+<p>下载 Git 源码</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:<span class="regexp">//</span>www.kernel.org<span class="regexp">/pub/</span>software<span class="regexp">/scm/gi</span>t<span class="regexp">/git-2.9.4.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p>解压</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-xzvf</span> <span class="selector-tag">git-2</span><span class="selector-class">.9</span><span class="selector-class">.4</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<p>注意：如果使用的 Fedora 系列的操作系统需要设置软连接</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s <span class="regexp">/usr/</span>bin<span class="regexp">/db2x_docbook2texi /u</span>sr<span class="regexp">/bin/</span>docbook2x-texi</span><br></pre></td></tr></table></figure>
+<p>进入解压目录编译安装（时间比较漫长）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd git-2.9.4</span><br><span class="line">./configure <span class="comment">--prefix=/usr/local/git</span></span><br><span class="line">sudo make all doc info</span><br><span class="line">sudo make <span class="keyword">install</span> <span class="keyword">install</span>-doc <span class="keyword">install</span>-html <span class="keyword">install</span>-info</span><br></pre></td></tr></table></figure>
+<p>添加 Git 到环境变量</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo echo <span class="string">"export PATH=<span class="variable">$PATH</span>:/usr/local/git/bin"</span> &gt;&gt; /etc<span class="built_in">/profile </span></span><br><span class="line">sudo source /etc/profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h3 id="学习参考"><a href="#学习参考" class="headerlink" title="学习参考"></a>学习参考</h3><p><a href="http://www.jianshu.com/p/1e51985b46dd" target="_blank" rel="noopener">（yum安装nginx和mysql，php7源码安装）</a><br><a href="http://www.jianshu.com/p/907c7edba13f" target="_blank" rel="noopener">centos上安装lnmp环境
+</a><br><a href="https://segmentfault.com/a/1190000003931716" target="_blank" rel="noopener">不可不知的centos7 firewalld 防火墙的使用</a><br><a href="http://53cto.blog.51cto.com/9899631/1841404" target="_blank" rel="noopener">CentOS7 安装 Mysql 5.7,密码查看与修改</a><br><a href="https://segmentfault.com/a/1190000007183895" target="_blank" rel="noopener">Centos 7.2 安装配置</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果对您有用，请博主喝杯咖啡！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://api.jybx.me/wechatpay.png" alt="七年 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lnmp/" rel="tag">#lnmp</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/laravel-faker.html" rel="next" title="laravel-faker">
+                <i class="fa fa-chevron-left"></i> laravel-faker
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="lnmp.html"
+           data-title="lnmp" data-url="http://blog.jybx.me/lnmp.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://p1.ssl.qhmsg.com/dm/110_110_100/t01bf3b413adc87ae1d.jpg"
+               alt="七年" />
+          <p class="site-author-name" itemprop="name">七年</p>
+          <p class="site-description motion-element" itemprop="description">闲情偶拾，随遇而安</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Centos-7-下安装-LNMP-官方最新版"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Centos-7-&#x4E0B;&#x5B89;&#x88C5;-LNMP-&#x5B98;&#x65B9;&#x6700;&#x65B0;&#x7248;" class="headerlink" title="Centos 7 &#x4E0B;&#x5B89;&#x88C5; LNMP &#x5B98;&#x65B9;&#x6700;&#x65B0;&#x7248;"></a>Centos 7 &#x4E0B;&#x5B89;&#x88C5; LNMP &#x5B98;&#x65B9;&#x6700;&#x65B0;&#x7248;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件版本"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x8F6F;&#x4EF6;&#x7248;&#x672C;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x7248;&#x672C;"></a>&#x8F6F;&#x4EF6;&#x7248;&#x672C;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件更新"><span class="nav-number">1.1.1.</span> <span class="nav-text"><a href="#&#x8F6F;&#x4EF6;&#x66F4;&#x65B0;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x66F4;&#x65B0;"></a>&#x8F6F;&#x4EF6;&#x66F4;&#x65B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主机名修改"><span class="nav-number">1.1.2.</span> <span class="nav-text"><a href="#&#x4E3B;&#x673A;&#x540D;&#x4FEE;&#x6539;" class="headerlink" title="&#x4E3B;&#x673A;&#x540D;&#x4FEE;&#x6539;"></a>&#x4E3B;&#x673A;&#x540D;&#x4FEE;&#x6539;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置第三方-yum-源"><span class="nav-number">1.1.3.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;&#x7B2C;&#x4E09;&#x65B9;-yum-&#x6E90;" class="headerlink" title="&#x914D;&#x7F6E;&#x7B2C;&#x4E09;&#x65B9; yum &#x6E90;"></a>&#x914D;&#x7F6E;&#x7B2C;&#x4E09;&#x65B9; yum &#x6E90;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-安装"><span class="nav-number">1.1.4.</span> <span class="nav-text"><a href="#Nginx-&#x5B89;&#x88C5;" class="headerlink" title="Nginx &#x5B89;&#x88C5;"></a>Nginx &#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-service-命令-操作-Nginx"><span class="nav-number">1.1.5.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;-service-&#x547D;&#x4EE4;-&#x64CD;&#x4F5C;-Nginx" class="headerlink" title="&#x4F7F;&#x7528; service &#x547D;&#x4EE4; &#x64CD;&#x4F5C; Nginx"></a>&#x4F7F;&#x7528; service &#x547D;&#x4EE4; &#x64CD;&#x4F5C; Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-随开机自动启动"><span class="nav-number">1.1.6.</span> <span class="nav-text"><a href="#Nginx-&#x968F;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8;" class="headerlink" title="Nginx &#x968F;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8;"></a>Nginx &#x968F;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos7-启动服务命令（启动-Nginx）"><span class="nav-number">1.1.7.</span> <span class="nav-text"><a href="#Centos7-&#x542F;&#x52A8;&#x670D;&#x52A1;&#x547D;&#x4EE4;&#xFF08;&#x542F;&#x52A8;-Nginx&#xFF09;" class="headerlink" title="Centos7 &#x542F;&#x52A8;&#x670D;&#x52A1;&#x547D;&#x4EE4;&#xFF08;&#x542F;&#x52A8; Nginx&#xFF09;"></a>Centos7 &#x542F;&#x52A8;&#x670D;&#x52A1;&#x547D;&#x4EE4;&#xFF08;&#x542F;&#x52A8; Nginx&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-Nignx-状态"><span class="nav-number">1.1.8.</span> <span class="nav-text"><a href="#&#x67E5;&#x770B;-Nignx-&#x72B6;&#x6001;" class="headerlink" title="&#x67E5;&#x770B; Nignx &#x72B6;&#x6001;"></a>&#x67E5;&#x770B; Nignx &#x72B6;&#x6001;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙配置"><span class="nav-number">1.1.9.</span> <span class="nav-text"><a href="#&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;" class="headerlink" title="&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;"></a>&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-最新版安装"><span class="nav-number">1.1.10.</span> <span class="nav-text"><a href="#MySQL-&#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;" class="headerlink" title="MySQL &#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;"></a>MySQL &#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-MySQL-状态"><span class="nav-number">1.1.11.</span> <span class="nav-text"><a href="#&#x67E5;&#x770B;-MySQL-&#x72B6;&#x6001;" class="headerlink" title="&#x67E5;&#x770B; MySQL &#x72B6;&#x6001;"></a>&#x67E5;&#x770B; MySQL &#x72B6;&#x6001;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-添加到开机启动项"><span class="nav-number">1.1.12.</span> <span class="nav-text"><a href="#Mysql-&#x6DFB;&#x52A0;&#x5230;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x9879;" class="headerlink" title="Mysql &#x6DFB;&#x52A0;&#x5230;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x9879;"></a>Mysql &#x6DFB;&#x52A0;&#x5230;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x9879;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-MySQL"><span class="nav-number">1.1.13.</span> <span class="nav-text"><a href="#&#x542F;&#x52A8;-MySQL" class="headerlink" title="&#x542F;&#x52A8; MySQL"></a>&#x542F;&#x52A8; MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navicat-远程连接阿里云上的-mysql"><span class="nav-number">1.1.14.</span> <span class="nav-text"><a href="#Navicat-&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;&#x963F;&#x91CC;&#x4E91;&#x4E0A;&#x7684;-mysql" class="headerlink" title="Navicat &#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;&#x963F;&#x91CC;&#x4E91;&#x4E0A;&#x7684; mysql"></a>Navicat &#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;&#x963F;&#x91CC;&#x4E91;&#x4E0A;&#x7684; mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP7-最新版安装"><span class="nav-number">1.1.15.</span> <span class="nav-text"><a href="#PHP7-&#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;" class="headerlink" title="PHP7 &#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;"></a>PHP7 &#x6700;&#x65B0;&#x7248;&#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-nginx-支持-php"><span class="nav-number">1.1.16.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;-nginx-&#x652F;&#x6301;-php" class="headerlink" title="&#x914D;&#x7F6E; nginx &#x652F;&#x6301; php"></a>&#x914D;&#x7F6E; nginx &#x652F;&#x6301; php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Redis"><span class="nav-number">1.1.17.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;Redis" class="headerlink" title="&#x5B89;&#x88C5;Redis"></a>&#x5B89;&#x88C5;Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码编译安装-Git"><span class="nav-number">1.1.18.</span> <span class="nav-text"><a href="#&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;-Git" class="headerlink" title="&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5; Git"></a>&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5; Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习参考"><span class="nav-number">1.1.19.</span> <span class="nav-text"><a href="#&#x5B66;&#x4E60;&#x53C2;&#x8003;" class="headerlink" title="&#x5B66;&#x4E60;&#x53C2;&#x8003;"></a>&#x5B66;&#x4E60;&#x53C2;&#x8003;</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七年</span>
+</div>
+
+<div class="powered-by">
+  由 <a rel="external nofollow" class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a rel="external nofollow" class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jybxmsls"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="http://api.jybx.me/particle.js"></script>
+</html>
