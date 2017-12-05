@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.jybx.me/gitlab.html</loc>
+    
+    <lastmod>2017-12-05T14:18:38.965Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/laravel-composer.html</loc>
+    
+    <lastmod>2017-12-05T14:17:30.593Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/carbon.html</loc>
+    
+    <lastmod>2017-12-05T14:16:07.413Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.jybx.me/https.html</loc>
     
     <lastmod>2017-12-05T14:09:38.561Z</lastmod>

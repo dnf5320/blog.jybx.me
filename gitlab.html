@@ -1,0 +1,910 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="gitlab," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一个人住的七年" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://api.jybx.me/187066.jpg?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="安装 GitLab Community Edition (CE) 社区版">
+<meta name="keywords" content="gitlab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitlab">
+<meta property="og:url" content="http://blog.jybx.me/gitlab.html">
+<meta property="og:site_name" content="一个人住的七年">
+<meta property="og:description" content="安装 GitLab Community Edition (CE) 社区版">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-05T14:18:38.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gitlab">
+<meta name="twitter:description" content="安装 GitLab Community Edition (CE) 社区版">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6238452984271865000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.jybx.me/gitlab.html"/>
+
+  <title> gitlab | 一个人住的七年 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d67973c483c7194fb4973ed65b6ebdab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一个人住的七年</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">做自己喜欢的事，会遇见喜欢的人。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                gitlab
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-05T20:17:54+08:00" content="2017-07-05">
+              2017-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/gitlab/" itemprop="url" rel="index">
+                    <span itemprop="name">gitlab</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/gitlab.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="gitlab.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装-GitLab-Community-Edition-CE-社区版"><a href="#安装-GitLab-Community-Edition-CE-社区版" class="headerlink" title="安装 GitLab Community Edition (CE) 社区版"></a>安装 GitLab Community Edition (CE) 社区版</h1><blockquote>
+<p>GitLab 是一个利用 Ruby on Rails 开发的开源应用程序，实现一个自托管的 Git 项目仓库，可通过 Web 界面进行访问公开的或者私人项目.<br><a href="https://www.gitlab.com.cn/" target="_blank" rel="noopener">Gitlab 中文网：</a><a href="https://www.gitlab.com.cn/" target="_blank" rel="noopener">https://www.gitlab.com.cn/</a></p>
+</blockquote>
+<h3 id="安装配置依赖项"><a href="#安装配置依赖项" class="headerlink" title="安装配置依赖项"></a>安装配置依赖项</h3><p>如想使用 Postfix 来发送邮件,在安装期间请选择 ‘Internet Site’. 您也可以用 sendmai 或者 配置 SMTP 服务并使用 SMTP 发送邮件.</p>
+<p>在 Centos 6 和 7 系统上, 下面的命令将在系统防火墙里面开放 HTTP 和 SSH 端口.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖包</span></span><br><span class="line">sudo yum install curl policycoreutils openssh-server openssh-clients</span><br><span class="line">sudo systemctl <span class="builtin-name">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 postfix 邮件服务</span></span><br><span class="line">sudo yum install postfix</span><br><span class="line">sudo systemctl <span class="builtin-name">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br><span class="line">systemctl status postfix.service # 查看状态</span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --permanent <span class="attribute">--add-service</span>=http</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="使用清华大学-TUNA-镜像源"><a href="#使用清华大学-TUNA-镜像源" class="headerlink" title="使用清华大学 TUNA 镜像源"></a>使用清华大学 TUNA 镜像源</h3><p><a href="https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/" target="_blank" rel="noopener">镜像使用帮助</a><br>RHEL/CentOS 用户<br>新建 /etc/yum.repos.d/gitlab-ce.repo，内容为</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[gitlab-ce]</span></span><br><span class="line"><span class="attr">name</span>=Gitlab CE Repository</span><br><span class="line"><span class="attr">baseurl</span>=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el<span class="variable">$releasever</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>再执行</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新本地 YUM 缓存</span></span><br><span class="line">sudo yum makecache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 GitLab 社区版</span></span><br><span class="line">sudo yum <span class="keyword">install</span> gitlab-ce <span class="comment">#(自动安装最新版)</span></span><br><span class="line">sudo yum <span class="keyword">install</span> gitlab-ce-<span class="number">8.8</span>.<span class="number">4</span>-ce.<span class="number">0</span>.el6 <span class="comment">#(安装指定版本)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 GitLab</span></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<h3 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h3><p><a href="https://segmentfault.com/a/1190000007661272" target="_blank" rel="noopener">Nginx配置反向代理访问 Gitlab</a></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vi</span> /etc/gitlab/gitlab.rb</span><br><span class="line"><span class="comment"># 找到 external_url 'http://******' #(修改成你的地址)</span></span><br><span class="line"><span class="comment"># 设置 gitlab nginx 端口监听修改 </span></span><br><span class="line">nginx[<span class="string">'listen_port'</span>] = 端口号</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">vi /etc/hosts，添加 host 映射</span><br><span class="line"><span class="number">127.0.0.1</span> git.home.com</span><br><span class="line"></span><br><span class="line">每次修改 /etc/gitlab/gitlab.rb，都要运行以下命令，让配置生效</span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line">systemctl restart nginx</span><br><span class="line"></span><br><span class="line">配置本机的 host，如：<span class="number">192.168.113.59</span> git.home.com。</span><br></pre></td></tr></table></figure>
+<h3 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --zone=public --add-port=8081/tcp --permanent</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">firewall-cmd --reload</span></span><br></pre></td></tr></table></figure>
+<p>最后，在浏览器打开网址 <a href="http://git.home.com，修改密码" target="_blank" rel="noopener">http://git.home.com，修改密码</a></p>
+<h3 id="Gitlab-修改备份文件默认目录"><a href="#Gitlab-修改备份文件默认目录" class="headerlink" title="Gitlab 修改备份文件默认目录"></a>Gitlab 修改备份文件默认目录</h3><p>修改 /etc/gitlab/gitlab.rb 来修改默认存放备份文件的目录:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 设置备份周期为7天 - 604800秒</span></span><br><span class="line">gitlab_rails[<span class="string">'backup_keep_time'</span>] = <span class="number">604800</span></span><br><span class="line"><span class="meta"># 备份目录</span></span><br><span class="line">gitlab_rails[<span class="string">'backup_path'</span>] = <span class="string">'/mnt/backups'</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 重载配置文件</span></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>Linux 服务器上使用 CronTab 定时执行</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">crontab -e</span></span><br></pre></td></tr></table></figure>
+<p>之后就会打开一个文件，并且是非编辑状态，则是 vi 的编辑界面，通过敲键盘上的 i，进入编辑模式，就可以编辑内容。这个文件中的每一行就是一个定时任务，我们新建一行，就是新建一条定时任务（当然是指这一行内按照一定的格式进行书写）。</p>
+<p>时间部分由 5 个时间参数组成，分别是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分　时　日　月　周</span><br></pre></td></tr></table></figure>
+<p>第 1 列表示分钟 1～59 每分钟用 <em>或者 </em>/1表示，<em>/n 表示每 n 分钟，例如 </em>/8 就是每 8 分钟的意思，下面也是类推<br>第 2 列表示小时 1～23（0 表示 0 点）<br>第 3 列表示日期 1～31<br>第 4 列表示月份 1～12<br>第 5 列标识号星期 0～6（0 表示星期天）</p>
+<p>备份</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">2</span> * * * /<span class="keyword">usr</span>/bin/gitlab-rake gitlab:backup:create</span><br><span class="line"><span class="symbol">0 </span><span class="number">2</span> * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<h3 id="恢复数据文件"><a href="#恢复数据文件" class="headerlink" title="恢复数据文件"></a>恢复数据文件</h3><p>首先进入备份 gitlab 的目录，这个目录是配置文件中的 <code>gitlab_rails[&#39;backup_path&#39;]</code> ，默认为 <code>/var/opt/gitlab/backups</code></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 停止连接数据库的进程，保证数据库没有新的连接，不会有写数据情况</span></span><br><span class="line">sudo gitlab-ctl stop unicorn</span><br><span class="line">sudo gitlab-ctl stop sidekiq</span><br><span class="line"></span><br><span class="line"><span class="meta"># 恢复 *********** 这个备份文件，将覆盖 GitLab 数据库！*********** 为备份文件的时间戳</span></span><br><span class="line">sudo gitlab-rake gitlab:backup:restore BACKUP=***********</span><br><span class="line"></span><br><span class="line"><span class="meta"># 启动 GitLab</span></span><br><span class="line">sudo gitlab-ctl start</span><br><span class="line"></span><br><span class="line"><span class="meta"># 检查 GitLab</span></span><br><span class="line">sudo gitlab-rake gitlab:check SANITIZE=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置-smtp-发送邮件服务"><a href="#设置-smtp-发送邮件服务" class="headerlink" title="设置 smtp 发送邮件服务"></a>设置 smtp 发送邮件服务</h3><p><a href="https://docs.gitlab.com.cn/omnibus/settings/smtp.html" target="_blank" rel="noopener">https://docs.gitlab.com.cn/omnibus/settings/smtp.html</a><br>通过修改 /etc/gitlab/gitlab.rb 来设置邮件功能</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 通过SMTP来发送邮件</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">"smtp.163.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = <span class="number">465</span></span><br><span class="line"><span class="meta"># 邮箱账号</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"xxuser@163.com"</span> </span><br><span class="line"><span class="meta"># 邮箱密码</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"xxpassword"</span>-------&gt;注意这里填的是开启smtp的授权码，不是邮箱登录密码</span><br><span class="line"><span class="meta"># 邮箱域：这里填写163.com就好</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_domain'</span>] = <span class="string">"163.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = :login</span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">false</span></span><br><span class="line"><span class="meta">##修改gitlab配置的发信人</span></span><br><span class="line"><span class="meta"># 第一行配置一定要和163邮箱的账户名一样否则可能发送失败</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">"xxuser@163.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_reply_to'</span>] = <span class="string">'xxuser@163.com'</span></span><br><span class="line">user[<span class="string">"git_user_email"</span>] = <span class="string">"xxuser@163.com"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置文件</span></span><br><span class="line"><span class="attribute">sudo</span> gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>测试邮件配置是否成功<br>执行 <code>gitlab-rails console</code> 进入控制台。 然后在控制台提示符后输入下面的命令 发送一封测试邮件：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Notify</span><span class="selector-class">.test_email</span>(<span class="string">'收件人邮箱'</span>, <span class="string">'邮件标题'</span>, <span class="string">'邮件正文'</span>)<span class="selector-class">.deliver_now</span></span><br></pre></td></tr></table></figure>
+<h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动所有 gitlab 组件：</span></span><br><span class="line">sudo gitlab-ctl start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止所有 gitlab 组件：</span></span><br><span class="line">sudo gitlab-ctl stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启所有 gitlab 组件：</span></span><br><span class="line">sudo gitlab-ctl restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看服务状态</span></span><br><span class="line">sudo gitlab-ctl status</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动服务</span></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改默认的配置文件</span></span><br><span class="line">sudo vim /etc/gitlab/gitlab.rb</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看版本</span></span><br><span class="line">sudo cat /opt/gitlab/embedded/service/gitlab-rails/VERSION</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"vm.overcommit_memory=1"</span> &gt;&gt; /etc/sysctl.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sysctl -p</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查gitlab</span></span><br><span class="line">gitlab-rake gitlab:check SANITIZE=true --trace</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看日志</span></span><br><span class="line">sudo gitlab-ctl tail</span><br></pre></td></tr></table></figure>
+<h3 id="学习参考"><a href="#学习参考" class="headerlink" title="学习参考"></a>学习参考</h3><p><a href="https://www.gitlab.com.cn/downloads/#centos7" target="_blank" rel="noopener">gitlab</a><br><a href="https://juejin.im/post/57d7c7a979bc44005e594f18" target="_blank" rel="noopener">Centos 6 搭建安装 Gitlab</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果对您有用，请博主喝杯咖啡！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://api.jybx.me/wechatpay.png" alt="七年 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gitlab/" rel="tag">#gitlab</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/laravel-repository.html" rel="next" title="laravel-repository">
+                <i class="fa fa-chevron-left"></i> laravel-repository
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/https.html" rel="prev" title="https">
+                https <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="gitlab.html"
+           data-title="gitlab" data-url="http://blog.jybx.me/gitlab.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://p1.ssl.qhmsg.com/dm/110_110_100/t01bf3b413adc87ae1d.jpg"
+               alt="七年" />
+          <p class="site-author-name" itemprop="name">七年</p>
+          <p class="site-description motion-element" itemprop="description">闲情偶拾，随遇而安</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-GitLab-Community-Edition-CE-社区版"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;-GitLab-Community-Edition-CE-&#x793E;&#x533A;&#x7248;" class="headerlink" title="&#x5B89;&#x88C5; GitLab Community Edition (CE) &#x793E;&#x533A;&#x7248;"></a>&#x5B89;&#x88C5; GitLab Community Edition (CE) &#x793E;&#x533A;&#x7248;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置依赖项"><span class="nav-number">1.0.1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x9879;" class="headerlink" title="&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x9879;"></a>&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x9879;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用清华大学-TUNA-镜像源"><span class="nav-number">1.0.2.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;&#x6E05;&#x534E;&#x5927;&#x5B66;-TUNA-&#x955C;&#x50CF;&#x6E90;" class="headerlink" title="&#x4F7F;&#x7528;&#x6E05;&#x534E;&#x5927;&#x5B66; TUNA &#x955C;&#x50CF;&#x6E90;"></a>&#x4F7F;&#x7528;&#x6E05;&#x534E;&#x5927;&#x5B66; TUNA &#x955C;&#x50CF;&#x6E90;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改配置"><span class="nav-number">1.0.3.</span> <span class="nav-text"><a href="#&#x66F4;&#x6539;&#x914D;&#x7F6E;" class="headerlink" title="&#x66F4;&#x6539;&#x914D;&#x7F6E;"></a>&#x66F4;&#x6539;&#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙配置"><span class="nav-number">1.0.4.</span> <span class="nav-text"><a href="#&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;" class="headerlink" title="&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;"></a>&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitlab-修改备份文件默认目录"><span class="nav-number">1.0.5.</span> <span class="nav-text"><a href="#Gitlab-&#x4FEE;&#x6539;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x76EE;&#x5F55;" class="headerlink" title="Gitlab &#x4FEE;&#x6539;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x76EE;&#x5F55;"></a>Gitlab &#x4FEE;&#x6539;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x76EE;&#x5F55;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恢复数据文件"><span class="nav-number">1.0.6.</span> <span class="nav-text"><a href="#&#x6062;&#x590D;&#x6570;&#x636E;&#x6587;&#x4EF6;" class="headerlink" title="&#x6062;&#x590D;&#x6570;&#x636E;&#x6587;&#x4EF6;"></a>&#x6062;&#x590D;&#x6570;&#x636E;&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-smtp-发送邮件服务"><span class="nav-number">1.0.7.</span> <span class="nav-text"><a href="#&#x8BBE;&#x7F6E;-smtp-&#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x670D;&#x52A1;" class="headerlink" title="&#x8BBE;&#x7F6E; smtp &#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x670D;&#x52A1;"></a>&#x8BBE;&#x7F6E; smtp &#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x670D;&#x52A1;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运维"><span class="nav-number">1.0.8.</span> <span class="nav-text"><a href="#&#x8FD0;&#x7EF4;" class="headerlink" title="&#x8FD0;&#x7EF4;"></a>&#x8FD0;&#x7EF4;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习参考"><span class="nav-number">1.0.9.</span> <span class="nav-text"><a href="#&#x5B66;&#x4E60;&#x53C2;&#x8003;" class="headerlink" title="&#x5B66;&#x4E60;&#x53C2;&#x8003;"></a>&#x5B66;&#x4E60;&#x53C2;&#x8003;</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七年</span>
+</div>
+
+<div class="powered-by">
+  由 <a rel="external nofollow" class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a rel="external nofollow" class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jybxmsls"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="http://api.jybx.me/particle.js"></script>
+</html>
