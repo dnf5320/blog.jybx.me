@@ -4,8 +4,108 @@
 
     
   <url>
+    <loc>http://blog.jybx.me/https.html</loc>
+    <lastmod>2017-12-05T14:09:38.561Z</lastmod>
+    <data>
+        <display>
+        <title>https</title>
+        <pubTime>2017-07-05T14:08:23.000Z</pubTime>
+        
+        <tag>https</tag>
+         
+        <tag>Nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="https" url="http://blog.jybx.me/categories/https/"/>
+          
+             
+              <breadCrumb title="Nginx" url="http://blog.jybx.me/categories/https/Nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.jybx.me/laravel-repository.html</loc>
+    <lastmod>2017-12-05T14:08:06.631Z</lastmod>
+    <data>
+        <display>
+        <title>laravel-repository</title>
+        <pubTime>2017-06-15T05:07:10.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+        <tag>repository</tag>
+         
+         
+           
+             
+              <breadCrumb title="laravel" url="http://blog.jybx.me/categories/laravel/"/>
+          
+             
+              <breadCrumb title="repository" url="http://blog.jybx.me/categories/laravel/repository/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.jybx.me/mamp.html</loc>
+    <lastmod>2017-12-05T14:06:37.493Z</lastmod>
+    <data>
+        <display>
+        <title>mamp</title>
+        <pubTime>2017-04-03T14:05:29.000Z</pubTime>
+        
+        <tag>mamp</tag>
+         
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="mamp" url="http://blog.jybx.me/categories/mamp/"/>
+          
+             
+              <breadCrumb title="redis" url="http://blog.jybx.me/categories/mamp/redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.jybx.me/array.html</loc>
+    <lastmod>2017-12-05T14:05:06.382Z</lastmod>
+    <data>
+        <display>
+        <title>array</title>
+        <pubTime>2017-06-15T04:03:56.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>array</tag>
+         
+         
+           
+             
+              <breadCrumb title="php" url="http://blog.jybx.me/categories/php/"/>
+          
+             
+              <breadCrumb title="array" url="http://blog.jybx.me/categories/php/array/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.jybx.me/lnmp.html</loc>
-    <lastmod>2017-12-05T13:42:35.281Z</lastmod>
+    <lastmod>2017-12-05T14:03:33.545Z</lastmod>
     <data>
         <display>
         <title>lnmp</title>
@@ -15,6 +115,9 @@
          
          
            
+             
+              <breadCrumb title="lnmp" url="http://blog.jybx.me/categories/lnmp/"/>
+          
         </display>
     </data>
     </url>

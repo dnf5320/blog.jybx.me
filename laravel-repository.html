@@ -1,0 +1,945 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="laravel,repository," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一个人住的七年" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://api.jybx.me/187066.jpg?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="laravel 学习－安装 l5-repository 依赖">
+<meta name="keywords" content="laravel,repository">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel-repository">
+<meta property="og:url" content="http://blog.jybx.me/laravel-repository.html">
+<meta property="og:site_name" content="一个人住的七年">
+<meta property="og:description" content="laravel 学习－安装 l5-repository 依赖">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-05T14:08:06.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel-repository">
+<meta name="twitter:description" content="laravel 学习－安装 l5-repository 依赖">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6238452984271865000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.jybx.me/laravel-repository.html"/>
+
+  <title> laravel-repository | 一个人住的七年 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d67973c483c7194fb4973ed65b6ebdab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一个人住的七年</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">做自己喜欢的事，会遇见喜欢的人。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                laravel-repository
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-15T13:07:10+08:00" content="2017-06-15">
+              2017-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">laravel</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/laravel/repository/" itemprop="url" rel="index">
+                    <span itemprop="name">repository</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/laravel-repository.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="laravel-repository.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="laravel-学习－安装-l5-repository-依赖"><a href="#laravel-学习－安装-l5-repository-依赖" class="headerlink" title="laravel 学习－安装 l5-repository 依赖"></a>laravel 学习－安装 l5-repository 依赖</h1><h2 id="MVC-架构-Model-View-Controller"><a href="#MVC-架构-Model-View-Controller" class="headerlink" title="MVC 架构 Model, View, Controller"></a>MVC 架构 Model, View, Controller</h2><blockquote>
+<p>Model<br>模型不仅包含数据，而且包含数据代表的逻辑。</p>
+<p>View<br>View 负责根据 Model 中的数据显示用户界面。</p>
+<p>Controller<br>控制器将用户界面和数据模型关联起来，并充当协调运作的角色。它接收各种用户操作，更新数据模型，并用合适的 view 展示结果给用户。</p>
+</blockquote>
+<h2 id="大型网络-Spring"><a href="#大型网络-Spring" class="headerlink" title="大型网络 Spring"></a>大型网络 Spring</h2><blockquote>
+<p>Service    用于标注业务层组件<br>Controller 用于标注控制层组件<br>Repository 用于标注数据访问组件<br>Presenters 用于标注显示逻辑组件</p>
+<p>Repository 是 MVC 中衔接 Controller 和 Model 之间的一个纽带。从概念上讲，Repository 是把将数据给封装后的集合并提供给 Controller 的操作。</p>
+<p>l5-repository 是一个为 laravel5 提供的数据库抽象层，目的是为了将应用的数据库操作和核心的业务逻辑分离开，保证 controller 的精简。</p>
+</blockquote>
+<p><a href="https://github.com/andersao/l5-repository" target="_blank" rel="noopener">安装包地址</a><br><a href="https://packagist.org/packages/prettus/l5-repository" target="_blank" rel="noopener">packagist</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>执行以下命令以获取最新版本的软件包：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">composer</span> <span class="meta">require</span> prettus/l5-repository</span><br></pre></td></tr></table></figure>
+<p>在你的 config/app.php 将 Prettus\Repository\Providers\RepositoryServiceProvider::class 添加到 providers 数组的末尾：</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'providers'</span> =&gt; [</span><br><span class="line">    Prettus\Repository\Providers\RepositoryServiceProvider::<span class="class"><span class="keyword">class</span>,</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>发布资源文件的服务提供者</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan vendor:publish --provider 'Prettus<span class="symbol">\R</span>epository<span class="symbol">\P</span>roviders<span class="symbol">\R</span>epositoryServiceProvider'</span><br></pre></td></tr></table></figure>
+<p>执行结果</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Copied File [<span class="regexp">/vendor/</span>prettus<span class="regexp">/l5-repository/</span>src<span class="regexp">/resources/</span>config<span class="regexp">/repository.php] To [/</span>config/repository.php]</span><br><span class="line">Publishing complete <span class="keyword">for</span> tag []!</span><br></pre></td></tr></table></figure>
+<p>在 <code>config/</code> 下，生成一个 <code>repository.php</code> 的配置文件</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>首先配置存储库文件的存储位置。 默认情况下是 “app” 文件夹和命名空间 “App”。 请注意， paths 数组中的值可以直接用作命名空间和文件路径。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'generator'</span>  =&gt; [</span><br><span class="line">   <span class="string">'basePath'</span>      =&gt; app_path(),</span><br><span class="line">   <span class="string">'rootNamespace'</span> =&gt; <span class="string">'App\\'</span>,</span><br><span class="line">   <span class="string">'paths'</span>         =&gt; [</span><br><span class="line">       <span class="string">'models'</span>       =&gt; <span class="string">'Models'</span>, <span class="comment">// 修改模型目录名</span></span><br><span class="line">       <span class="string">'repositories'</span> =&gt; <span class="string">'Repositories\\Eloquent'</span>, <span class="comment">// Eloquent 目录用于存放实现 Repository 接口的抽象类和具体类</span></span><br><span class="line">       <span class="string">'interfaces'</span>   =&gt; <span class="string">'Repositories\\Contracts'</span>, <span class="comment">// 接口</span></span><br><span class="line">       <span class="comment">// Transformer 与 Model 层一一对应的, 主要是对返回数据进行封装</span></span><br><span class="line">       <span class="string">'transformers'</span> =&gt; <span class="string">'Repositories\\Transformers'</span>,</span><br><span class="line">       <span class="string">'presenters'</span>   =&gt; <span class="string">'Presenters'</span>, <span class="comment">// 将相关的显示逻辑封装在不同的 presenter</span></span><br><span class="line">       <span class="string">'validators'</span>   =&gt; <span class="string">'Repositories\\Validators'</span>, <span class="comment">// 验证器</span></span><br><span class="line">       <span class="string">'controllers'</span>  =&gt; <span class="string">'Http/Controllers/Admin'</span>,</span><br><span class="line">       <span class="string">'provider'</span>     =&gt; <span class="string">'RepositoryServiceProvider'</span>,</span><br><span class="line">       <span class="comment">// 将一些可能会在多个接口或者情况下用到的查询条件放到这里</span></span><br><span class="line">       <span class="string">'criteria'</span>     =&gt; <span class="string">'Repositories\\Criteria'</span>,</span><br><span class="line">       <span class="string">'stubsOverridePath'</span> =&gt; app_path()</span><br><span class="line">   ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>生成模型所需的一切，请运行以下命令：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">php</span> artisan make:entity Article // 有提示，需要生成哪些文件，<span class="literal">yes</span> | <span class="literal">no</span></span><br></pre></td></tr></table></figure>
+<p>这将创建 Controller，Validator，Model，Repository，Presenter 和 Transformer 类。 它还将创建一个新的服务提供程序，用于绑定 Eloquent 存储库及其对应的存储库接口。 要加载它，只需将它添加到您的 AppServiceProvider@register 方法：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;app-&gt;register(RepositoryServiceProvider::<span class="keyword">class</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namespace App\Repositories\Contracts\Blog;</span></span><br><span class="line"><span class="comment">// namespace App\Repositories\Eloquent\Blog;</span></span><br><span class="line"><span class="comment">// 生成 2 个文件</span></span><br><span class="line">php artisan <span class="built_in">make</span>:repository <span class="string">"Blog\Post"</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加验证规则，需要传递 --rules 选项并创建迁移</span></span><br><span class="line"><span class="comment">// 该命令还将创建基本 RESTfull 控制器，所以只需将此行添加到 routes.php 文件</span></span><br><span class="line">php artisan <span class="built_in">make</span>:entity Cat --fillable=<span class="string">"title:string,content:text"</span> --rules=<span class="string">"title=&gt;required|min:2, content=&gt;sometimes|min:10"</span></span><br><span class="line"></span><br><span class="line">Route::resource(<span class="string">'cats'</span>, CatsController::class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成 transformers  </span></span><br><span class="line">php artisan <span class="built_in">make</span>:transformer Post</span><br><span class="line"></span><br><span class="line"><span class="comment">// namespace App\Presenters; </span></span><br><span class="line"><span class="comment">// 生成 presenters  </span></span><br><span class="line"><span class="comment">// 还会有一个提示: Would you like to create a Transformer?</span></span><br><span class="line">php artisan <span class="built_in">make</span>:presenter Post</span><br><span class="line"></span><br><span class="line"><span class="comment">// namespace App\Providers;</span></span><br><span class="line"><span class="comment">// 会生成 'repositoryProviderServer.php'，并绑定一个post相关的服务  </span></span><br><span class="line">php artisan <span class="built_in">make</span>:bindings Post</span><br><span class="line"></span><br><span class="line"><span class="comment">// namespace App\Repositories\Criteria;</span></span><br><span class="line">php artisan <span class="built_in">make</span>:criteria My</span><br></pre></td></tr></table></figure>
+<h2 id="Criteria"><a href="#Criteria" class="headerlink" title="Criteria"></a>Criteria</h2><blockquote>
+<p>Criteria 是一个让你可以根据具体的或者一系列复杂的条件来向你的 repository 发起查询的方式，你可以将一些可能会在多个接口或者情况下用到的查询条件放到这里，到达复用的目的，而且可以将复杂的查询条件从你的 controller 中抽离出来，精简代码的同时，也使得各部分之间的耦合更加松散</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Criteria</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Contracts</span>\<span class="title">CriteriaInterface</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Contracts</span>\<span class="title">RepositoryInterface</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">/**</span><br><span class="line"> * Class MyCriteria</span><br><span class="line"> * @package namespace App\Repositories\Criteria;</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">MyCriteria</span> <span class="keyword">implements</span> <span class="title">CriteriaInterface</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="keyword">protected</span> $id;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * MyCriteria constructor.</span><br><span class="line">     * @param $id</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($id)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;id = $id;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * Apply criteria in query repository</span><br><span class="line">     *</span><br><span class="line">     * @param                     $model</span><br><span class="line">     * @param RepositoryInterface $repository</span><br><span class="line">     *</span><br><span class="line">     * @return mixed</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">apply</span><span class="params">($model, RepositoryInterface $repository)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $model-&gt;where(<span class="string">'id'</span>, <span class="keyword">$this</span>-&gt;id);</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>在控制器中使用条件</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Admin</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Criteria</span>\<span class="title">MyCriteria</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Contracts</span>\<span class="title">ArticleRepository</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">ArticlesController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * @var ArticleRepository</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">protected</span> $repository;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(ArticleRepository $repository)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;repository = $repository;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * Display a listing of the resource.</span><br><span class="line">     *</span><br><span class="line">     * @return \Illuminate\Http\Response</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;repository-&gt;pushCriteria(MyCriteria::class);</span></span><br><span class="line"><span class="php">        <span class="comment">//$this-&gt;repository-&gt;pushCriteria(new MyCriteria());</span></span></span><br><span class="line"><span class="php">        $articles = <span class="keyword">$this</span>-&gt;repository-&gt;all();</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> view(<span class="string">'articles.index'</span>, compact(<span class="string">'articles'</span>));</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><blockquote>
+<p>Transformers 的作用是按照接口的需要来包装你从数据库查询出来的结果，你可以在这里方便的设置你需要哪些字段，每一个字段的数据类型，或者你要联查多个表来组成接口所需要的数据时，你可以在这里利用 eloquent 的 relationship 方便的完成<br>这是一个第三方的包，需要你用 composer 引入</p>
+<p>composer require league/fractal</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Transformers</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">League</span>\<span class="title">Fractal</span>\<span class="title">TransformerAbstract</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Article</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">/**</span><br><span class="line"> * Class ArticleTransformer</span><br><span class="line"> * @package namespace App\Repositories\Transformers;</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">ArticleTransformer</span> <span class="keyword">extends</span> <span class="title">TransformerAbstract</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * Transform the \Article entity</span><br><span class="line">     * @param Article $model</span><br><span class="line">     *</span><br><span class="line">     * @return array</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">transform</span><span class="params">(Article $model)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> [</span></span><br><span class="line"><span class="php">            <span class="string">'id'</span>         =&gt; (int) $model-&gt;id,</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            <span class="comment">/* place your other model properties here */</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            <span class="string">'created_at'</span> =&gt; $model-&gt;created_at,</span></span><br><span class="line"><span class="php">            <span class="string">'updated_at'</span> =&gt; $model-&gt;updated_at</span></span><br><span class="line"><span class="php">        ];</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>在 repository 存储库中设置默认条件</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Eloquent</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Transformers</span>\<span class="title">ArticleTransformer</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Eloquent</span>\<span class="title">BaseRepository</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Criteria</span>\<span class="title">RequestCriteria</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Contracts</span>\<span class="title">ArticleRepository</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Article</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">/**</span><br><span class="line"> * Class ArticleRepositoryEloquent</span><br><span class="line"> * @package namespace App\Repositories\Eloquent;</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">ArticleRepositoryEloquent</span> <span class="keyword">extends</span> <span class="title">BaseRepository</span> <span class="keyword">implements</span> <span class="title">ArticleRepository</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line">    /**</span><br><span class="line">     * Specify Model class name</span><br><span class="line">     *</span><br><span class="line">     * @return string</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> Article::class;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">transfomer</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> ArticleTransformer::class;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    </span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * Boot up the repository, pushing criteria</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line">        /**</span><br><span class="line">         * RequestCriteria 是一个标准的 Criteria 实现。 它使筛选器能够根据请求中发送的参数在存储库中执行。</span><br><span class="line">         * 您可以执行动态搜索，过滤数据和自定义查询。</span><br><span class="line">         * 要在存储库中使用 Criteria，您可以在存储库的引导方法中添加新条件，或直接在控制器中使用，以便只过滤少数几个请求。</span><br><span class="line"><span class="php">         */</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;pushCriteria(app(RequestCriteria::class));</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>你也可以在 controller 中调用 setTransformer 方法来使用</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;repository-&gt;setTransformer(<span class="keyword">new</span> ArticleTransformer());</span><br></pre></td></tr></table></figure>
+<p><strong>跳过存储库中定义的条件</strong></p>
+<blockquote>
+<p>当你在对 repository 使用了 transformer 之后，也许在某些场景下你不希望查询结果自动的被 transform 掉，你可以调用 repository 的 skipTransformer() 方法来跳过转换。</p>
+</blockquote>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="function"><span class="title">this</span>-&gt;</span><span class="function"><span class="title">repository</span>-&gt;</span><span class="function"><span class="title">skipCriteria</span>()-&gt;</span>all();</span><br></pre></td></tr></table></figure>
+<p><strong>使用 popCriteria 删除条件</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;repository-&gt;popCriteria(<span class="keyword">new</span> MyCriteria());</span><br></pre></td></tr></table></figure>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>更改文件 config / repository.php 中的缓存设置</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'cache'</span> =&gt; [</span><br><span class="line">     <span class="comment">//启用或禁用缓存存储库</span></span><br><span class="line">     <span class="string">'enabled'</span> =&gt; <span class="keyword">true</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//缓存的生命周期</span></span><br><span class="line">     <span class="string">'minutes'</span> =&gt; <span class="number">30</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">// Repository Cache，implementation Illuminate\Contracts\Cache\Repository</span></span><br><span class="line">     <span class="string">'repository'</span> =&gt; <span class="string">'cache'</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//设置清除高速缓存</span></span><br><span class="line">     <span class="string">'clean'</span> =&gt; [</span><br><span class="line">     <span class="comment">//启用，禁用在更改时清除缓存</span></span><br><span class="line">     <span class="string">'enabled'</span> =&gt; <span class="keyword">true</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="string">'on'</span> =&gt; [</span><br><span class="line">     <span class="comment">//启用，在创建项目时禁用清除缓存</span></span><br><span class="line">     <span class="string">'create'</span> =&gt; <span class="keyword">true</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//启用，在升级项目时禁用清除缓存</span></span><br><span class="line">     <span class="string">'update'</span> =&gt; <span class="keyword">true</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//启用，在删除项目时禁用清除缓存</span></span><br><span class="line">     <span class="string">'delete'</span> =&gt; <span class="keyword">true</span> ，</span><br><span class="line">     ]]</span><br><span class="line">     ]，</span><br><span class="line">     <span class="string">'params'</span> =&gt; [</span><br><span class="line">     <span class="comment">//将用于绕过缓存存储库的请求参数</span></span><br><span class="line">     <span class="string">'skipCache'</span> =&gt; <span class="string">'skipCache'</span></span><br><span class="line">     ]，</span><br><span class="line">     <span class="string">'allowed'</span> =&gt; [</span><br><span class="line">     <span class="comment">//仅允许对某些方法进行高速缓存</span></span><br><span class="line">     <span class="string">'only'</span> =&gt; <span class="keyword">null</span> ，</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//允许缓存所有可用的方法，除了</span></span><br><span class="line">     <span class="string">'except'</span> =&gt; <span class="keyword">null</span></span><br><span class="line">     ]，</span><br><span class="line"> ]，</span><br></pre></td></tr></table></figure>
+<p><strong>可以直接在存储库中覆盖这些设置</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Eloquent</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Transformers</span>\<span class="title">ArticleTransformer</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Eloquent</span>\<span class="title">BaseRepository</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Criteria</span>\<span class="title">RequestCriteria</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">Contracts</span>\<span class="title">ArticleRepository</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Article</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">use</span> <span class="title">Prettus</span>\<span class="title">Repository</span>\<span class="title">Traits</span>\<span class="title">CacheableRepository</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">/**</span><br><span class="line"> * Class ArticleRepositoryEloquent</span><br><span class="line"> * @package namespace App\Repositories\Eloquent;</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">ArticleRepositoryEloquent</span> <span class="keyword">extends</span> <span class="title">BaseRepository</span> <span class="keyword">implements</span> <span class="title">ArticleRepository</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">use</span> <span class="title">CacheableRepository</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="comment">//设置缓存的生命周期到存储库</span></span></span><br><span class="line"><span class="php">    <span class="keyword">protected</span> $cacheMinutes = <span class="number">90</span> ;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="comment">// 可缓存的方法是：all，paginate，find，findByField，findWhere，getByCriteria</span></span></span><br><span class="line"><span class="php">    <span class="keyword">protected</span> $cacheOnly = [<span class="string">'all'</span>];</span></span><br><span class="line"><span class="php">    <span class="comment">//或</span></span></span><br><span class="line"><span class="php">    <span class="keyword">protected</span> $cacheExcept = [<span class="string">'find'</span>];</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考学习"><a href="#参考学习" class="headerlink" title="参考学习"></a>参考学习</h2><p><a href="https://zh.wikipedia.org/wiki/Ruby_on_Rails#Rails.E7.9A.84MVC.E6.9E.B6.E6.9E.84" target="_blank" rel="noopener">ROR</a><br><a href="http://blog.csdn.net/beyond__devil/article/details/54633617" target="_blank" rel="noopener">laravel 学习－安装 entrust 和 l5-repository 2 个基本依赖</a><br><a href="https://juejin.im/entry/587f3bae570c3522011941b7" target="_blank" rel="noopener">laravel 提供的简单强大的 repository</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果对您有用，请博主喝杯咖啡！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://api.jybx.me/wechatpay.png" alt="七年 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/laravel/" rel="tag">#laravel</a>
+          
+            <a href="/tags/repository/" rel="tag">#repository</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/array.html" rel="next" title="array">
+                <i class="fa fa-chevron-left"></i> array
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/https.html" rel="prev" title="https">
+                https <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="laravel-repository.html"
+           data-title="laravel-repository" data-url="http://blog.jybx.me/laravel-repository.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://p1.ssl.qhmsg.com/dm/110_110_100/t01bf3b413adc87ae1d.jpg"
+               alt="七年" />
+          <p class="site-author-name" itemprop="name">七年</p>
+          <p class="site-description motion-element" itemprop="description">闲情偶拾，随遇而安</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel-学习－安装-l5-repository-依赖"><span class="nav-number">1.</span> <span class="nav-text"><a href="#laravel-&#x5B66;&#x4E60;&#xFF0D;&#x5B89;&#x88C5;-l5-repository-&#x4F9D;&#x8D56;" class="headerlink" title="laravel &#x5B66;&#x4E60;&#xFF0D;&#x5B89;&#x88C5; l5-repository &#x4F9D;&#x8D56;"></a>laravel &#x5B66;&#x4E60;&#xFF0D;&#x5B89;&#x88C5; l5-repository &#x4F9D;&#x8D56;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-架构-Model-View-Controller"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#MVC-&#x67B6;&#x6784;-Model-View-Controller" class="headerlink" title="MVC &#x67B6;&#x6784; Model, View, Controller"></a>MVC &#x67B6;&#x6784; Model, View, Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大型网络-Spring"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x5927;&#x578B;&#x7F51;&#x7EDC;-Spring" class="headerlink" title="&#x5927;&#x578B;&#x7F51;&#x7EDC; Spring"></a>&#x5927;&#x578B;&#x7F51;&#x7EDC; Spring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#&#x547D;&#x4EE4;" class="headerlink" title="&#x547D;&#x4EE4;"></a>&#x547D;&#x4EE4;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Criteria"><span class="nav-number">1.6.</span> <span class="nav-text"><a href="#Criteria" class="headerlink" title="Criteria"></a>Criteria</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-number">1.7.</span> <span class="nav-text"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">1.8.</span> <span class="nav-text"><a href="#&#x7F13;&#x5B58;" class="headerlink" title="&#x7F13;&#x5B58;"></a>&#x7F13;&#x5B58;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考学习"><span class="nav-number">1.9.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;&#x5B66;&#x4E60;" class="headerlink" title="&#x53C2;&#x8003;&#x5B66;&#x4E60;"></a>&#x53C2;&#x8003;&#x5B66;&#x4E60;</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七年</span>
+</div>
+
+<div class="powered-by">
+  由 <a rel="external nofollow" class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a rel="external nofollow" class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jybxmsls"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="http://api.jybx.me/particle.js"></script>
+</html>

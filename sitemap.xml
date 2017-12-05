@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.jybx.me/https.html</loc>
+    
+    <lastmod>2017-12-05T14:09:38.561Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/laravel-repository.html</loc>
+    
+    <lastmod>2017-12-05T14:08:06.631Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/mamp.html</loc>
+    
+    <lastmod>2017-12-05T14:06:37.493Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.jybx.me/array.html</loc>
+    
+    <lastmod>2017-12-05T14:05:06.382Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.jybx.me/lnmp.html</loc>
     
-    <lastmod>2017-12-05T13:42:35.281Z</lastmod>
+    <lastmod>2017-12-05T14:03:33.545Z</lastmod>
     
   </url>
   

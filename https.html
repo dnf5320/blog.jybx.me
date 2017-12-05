@@ -1,0 +1,916 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="https,Nginx," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一个人住的七年" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://api.jybx.me/187066.jpg?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Let&apos;s Encrypt 就是一个 CA。我们可以从 Let&apos;s Encrypt 获得网站域名的免费的证书。这篇文章也主要讲的是通过 Let&apos;s Encrypt + Nginx 来让网站升级到 HTTPS。">
+<meta name="keywords" content="https,Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="https">
+<meta property="og:url" content="http://blog.jybx.me/https.html">
+<meta property="og:site_name" content="一个人住的七年">
+<meta property="og:description" content="Let&apos;s Encrypt 就是一个 CA。我们可以从 Let&apos;s Encrypt 获得网站域名的免费的证书。这篇文章也主要讲的是通过 Let&apos;s Encrypt + Nginx 来让网站升级到 HTTPS。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-05T14:09:38.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="https">
+<meta name="twitter:description" content="Let&apos;s Encrypt 就是一个 CA。我们可以从 Let&apos;s Encrypt 获得网站域名的免费的证书。这篇文章也主要讲的是通过 Let&apos;s Encrypt + Nginx 来让网站升级到 HTTPS。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6238452984271865000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.jybx.me/https.html"/>
+
+  <title> https | 一个人住的七年 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d67973c483c7194fb4973ed65b6ebdab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一个人住的七年</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">做自己喜欢的事，会遇见喜欢的人。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                https
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-05T22:08:23+08:00" content="2017-07-05">
+              2017-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/https/" itemprop="url" rel="index">
+                    <span itemprop="name">https</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/https/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/https.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="https.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Let’s-Encrypt-简介"><a href="#Let’s-Encrypt-简介" class="headerlink" title="Let’s Encrypt 简介"></a>Let’s Encrypt 简介</h1><blockquote>
+<p>如果要启用 HTTPS，我们就需要从证书授权机构(以下简称 CA) 处获取一个证书，Let’s Encrypt 就是一个 CA。我们可以从 Let’s Encrypt 获得网站域名的免费的证书。这篇文章也主要讲的是通过 Let’s Encrypt + Nginx 来让网站升级到 HTTPS。</p>
+</blockquote>
+<h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开端口443</span></span><br><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --zone=public --add-port=443/tcp --permanent</span></span><br><span class="line"><span class="bash">firewall-cmd --complete-reload</span></span><br><span class="line"><span class="bash">firewall-cmd --list-all</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-certbot-客户端"><a href="#安装-certbot-客户端" class="headerlink" title="安装 certbot 客户端"></a>安装 certbot 客户端</h3><p>在这里<a href="http://rpm.pbone.net/index.php3/stat/4/idpl/31446026/dir/centos_7/com/pyOpenSSL-0.15.1-1.el7.noarch.rpm.html" target="_blank" rel="noopener">获取源</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 7 更新源</span></span><br><span class="line">wget ftp:<span class="regexp">//mi</span>rror.switch.ch<span class="regexp">/pool/</span><span class="number">4</span><span class="regexp">/mirror/</span>centos<span class="regexp">/7.3.1611/</span>cloud<span class="regexp">/x86_64/</span>openstack-mitaka<span class="regexp">/common/</span>pyOpenSSL-<span class="number">0.15</span>.<span class="number">1</span>-<span class="number">1</span>.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">sudo rpm -Uvh pyOpenSSL-<span class="number">0.15</span>.<span class="number">1</span>-<span class="number">1</span>.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> certbot</span><br><span class="line">certbot <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
+<h3 id="无法分配内存错误"><a href="#无法分配内存错误" class="headerlink" title="无法分配内存错误"></a>无法分配内存错误</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 如果你的主机没有足够的内存，你可能会看到这样的错误</span><br><span class="line"><span class="selector-tag">certbot-0</span><span class="selector-class">.14</span><span class="selector-class">.1-3</span><span class="selector-class">.el7</span><span class="selector-class">.noarch</span>: <span class="selector-attr">[Errno 5]</span> <span class="selector-attr">[Errno 12]</span> <span class="selector-tag">Cannot</span> <span class="selector-tag">allocate</span> <span class="selector-tag">memory</span></span><br><span class="line"><span class="selector-tag">python-ply-3</span><span class="selector-class">.4-10</span><span class="selector-class">.el7</span><span class="selector-class">.noarch</span>: <span class="selector-attr">[Errno 5]</span> <span class="selector-attr">[Errno 12]</span> <span class="selector-tag">Cannot</span> <span class="selector-tag">allocate</span> <span class="selector-tag">memory</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>要解决此问题，您需要创建交换文件。交换文件的大小取决于你的内存</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">M = 以 GB 为单位的 RAM 量</span><br><span class="line">S = 交换量（GB）</span><br><span class="line">如果 M &lt;2，则 S = M * 2 Else S = M + 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 2048M <span class="string">/swapfile</span></span><br><span class="line">chmod 600 <span class="string">/swapfile</span></span><br><span class="line">mkswap <span class="string">/swapfile</span></span><br><span class="line">swapon <span class="string">/swapfile</span></span><br></pre></td></tr></table></figure>
+<h3 id="生成-HTTPS-证书"><a href="#生成-HTTPS-证书" class="headerlink" title="生成 HTTPS 证书"></a>生成 HTTPS 证书</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --standalone -d example<span class="selector-class">.com</span> -d www<span class="selector-class">.example</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">d 参数指定域名，是期望开启 https 的域名</span></span><br><span class="line"><span class="ruby">--standalone 表示申请证书时将启动 certbot 内置的 webserver，因此需要先把网站的 Nginx 停掉</span></span><br><span class="line"><span class="ruby">在申请证书时 letsencrypt 会做认证，如果多次认证失败会启动 Rate-limiting，因此在初期调试生成命令的时候，可以在加上 --test-cert 这个参数，表示先在 letsencrypt 的 staging 环境进行调试</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 会让你输入邮箱</span></span><br><span class="line">certbot certonly --standalone -d adele.top -d www.adele.top</span><br><span class="line">Saving debug log <span class="keyword">to</span> /<span class="keyword">var</span>/log/letsencrypt/letsencrypt.log</span><br><span class="line">Enter email address (used <span class="keyword">for</span> urgent renewal <span class="keyword">and</span> security notices) (Enter <span class="string">'c'</span> <span class="keyword">to</span></span><br><span class="line">cancel):</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入邮箱后出现</span></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Please read the Terms <span class="keyword">of</span> Service at</span><br><span class="line">https:<span class="regexp">//letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf. You must agree</span></span><br><span class="line"><span class="regexp">in order to register with the ACME server at</span></span><br><span class="line"><span class="regexp">https://</span>acme-v01.api.letsencrypt.org/directory</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">(A)gree<span class="regexp">/(C)ancel: (A)gree/</span>(C)ancel:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入 A 后出现如下提示</span></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Would you be willing <span class="keyword">to</span> share your email address <span class="keyword">with</span> the Electronic Frontier</span><br><span class="line">Foundation, a founding partner <span class="keyword">of</span> the Let<span class="string">'s Encrypt project and the non-profit</span></span><br><span class="line"><span class="string">organization that develops Certbot? We'</span>d like <span class="keyword">to</span> send you email about EFF <span class="keyword">and</span></span><br><span class="line">our work <span class="keyword">to</span> encrypt the web, protect its users <span class="keyword">and</span> defend digital rights.</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">(Y)es/(N)o:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入 Y</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果一切都成功，您可能会看到一条输出消息，如下所示</span></span><br><span class="line">IMPORTANT NOTES:</span><br><span class="line"> - Congratulations! Your certificate <span class="keyword">and</span> chain have been saved at</span><br><span class="line">   /etc/letsencrypt/live/example.com/fullchain.pem. Your cert will</span><br><span class="line">   expire <span class="literal">on</span> <span class="number">2017</span>-<span class="number">09</span>-<span class="number">24.</span> To obtain a <span class="keyword">new</span> <span class="keyword">or</span> tweaked version <span class="keyword">of</span> <span class="keyword">this</span></span><br><span class="line">   certificate <span class="keyword">in</span> the future, simply run certbot again. To</span><br><span class="line">   non-interactively renew *all* <span class="keyword">of</span> your certificates, run <span class="string">"certbot</span></span><br><span class="line"><span class="string">   renew"</span></span><br><span class="line"> - Your account credentials have been saved <span class="keyword">in</span> your Certbot</span><br><span class="line">   configuration directory at /etc/letsencrypt. You should make a</span><br><span class="line">   secure backup <span class="keyword">of</span> <span class="keyword">this</span> folder now. This configuration directory will</span><br><span class="line">   also contain certificates <span class="keyword">and</span> private keys obtained <span class="keyword">by</span> Certbot so</span><br><span class="line">   making regular backups <span class="keyword">of</span> <span class="keyword">this</span> folder <span class="keyword">is</span> ideal.</span><br><span class="line"> - If you like Certbot, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">   Donating <span class="keyword">to</span> ISRG / Let<span class="string">'s Encrypt:   https://letsencrypt.org/donate</span></span><br><span class="line"><span class="string">   Donating to EFF:                    https://eff.org/donate-le</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">最后，您的 TLS / SSL 证书将以折中的方式生成</span><br><span class="line">cd /etc/letsencrypt/live/example.com</span><br><span class="line">certbot<span class="selector-class">.log</span>  cert<span class="selector-class">.pem</span>  chain<span class="selector-class">.pem</span>  fullchain<span class="selector-class">.pem</span>  privkey<span class="selector-class">.pem</span>  README</span><br></pre></td></tr></table></figure>
+<h3 id="证书文件"><a href="#证书文件" class="headerlink" title="证书文件"></a>证书文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cert<span class="selector-class">.pem</span> - 您的域的证书，由Apache使用</span><br><span class="line">chain<span class="selector-class">.pem</span> - 我们加密Apache使用的连锁证书</span><br><span class="line">fullchain<span class="selector-class">.pem</span> - cert.pem和chain.pem组合，由nginx使用</span><br><span class="line">privkey<span class="selector-class">.pem</span> - 您的证书的私钥</span><br><span class="line"></span><br><span class="line">nginx 只需要 fullchain<span class="selector-class">.pem</span> 和 privkey.pem</span><br></pre></td></tr></table></figure>
+<h3 id="在-Nginx-上配置-TLS-SSL"><a href="#在-Nginx-上配置-TLS-SSL" class="headerlink" title="在 Nginx 上配置 TLS / SSL"></a>在 Nginx 上配置 TLS / SSL</h3><p><a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/" target="_blank" rel="noopener">Mozilla SSL Configuration Generator</a> 这是 Mozilla 搞得一个 HTTPS 配置文件自动生成器，支持 Apache，Nginx 等多种服务器。按照这个配置文件，选择 Intermediate 的兼容性。这里生成的配置文件是业界最佳实践和结果</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> www.example.com example.com;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^</span> https://<span class="variable">$server_name</span><span class="variable">$request_uri</span> <span class="literal">permanent</span>;  </span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> www.example.com example.com;</span><br><span class="line">    <span class="attribute">root</span> /workspace/webapps/obneer/;</span><br><span class="line">    <span class="attribute">index</span> index.php;</span><br><span class="line">    <span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line">      </span><br><span class="line">    <span class="attribute">ssl</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/letsencrypt/live/example.com/fullchain.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/letsencrypt/live/example.com/privkey.pem;</span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">    <span class="attribute">ssl_ciphers</span> <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS'</span>;</span><br><span class="line">    <span class="attribute">ssl_session_cache</span> shared:SSL:<span class="number">10m</span>;</span><br><span class="line">    <span class="attribute">ssl_session_timeout</span> <span class="number">10m</span>;</span><br><span class="line">    <span class="attribute">ssl_session_tickets</span> <span class="literal">off</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 让nginx代理静态文件（如js，css，image等），这样配置会使您的网站更快  </span></span><br><span class="line">    <span class="attribute">location</span> <span class="regexp">~* .*\.(html|htm|gif|jpg|jpeg|bmp|png|ico|txt|js|css|apk|ttf|woff|woff2|svg|flv)$</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Access-Control-Allow-Origin *;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 当有人访问以 .pem 结尾的路径时，他们将被迫重定向到您的主页</span></span><br><span class="line">    <span class="attribute">location</span> <span class="regexp">~* \.pem$</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^</span> https://<span class="variable">$server_name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="attribute">location</span> <span class="regexp">~* ^\/(wp-activate|wp-config|wp-config-sample|wp-cron|wp-mail|wp-signup)\.php$</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^</span> https://<span class="variable">$server_name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="attribute">location</span> <span class="regexp">~* ^\/wp-admin\/(install|install-helper|setup-config)\.php$</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^</span> https://<span class="variable">$server_name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">fastcgi_pass</span>  <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">        <span class="attribute">fastcgi_index</span> index.php;</span><br><span class="line">        <span class="attribute">fastcgi_param</span> SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        <span class="attribute">include</span>       fastcgi_params;</span><br><span class="line">        <span class="attribute">try_files</span>     <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$args</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启nginx</span><br><span class="line">systemctl <span class="built_in">restart</span> nginx</span><br></pre></td></tr></table></figure>
+<h3 id="证书更新"><a href="#证书更新" class="headerlink" title="证书更新"></a>证书更新</h3><blockquote>
+<p>前面生成的证书有效期为 3 个月，当快要到期时需要使用 certbot renew 命令更新证书。 在更新证书时需要先停止 nginx，然后输入 certbot renew –dry-run 模拟更新，如果模拟更新没有问题使用 certbot renew 更新证书后，再启动 nginx 进行测试。</p>
+</blockquote>
+<p>Linux 服务器上使用 CronTab 定时执行</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">crontab -e</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">15 </span><span class="number">2</span> * */<span class="number">2</span> * certbot renew --pre-hook <span class="string">"systemctl stop nginx"</span> --post-hook <span class="string">"systemctl restart nginx"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–pre-hook 这个参数表示执行更新操作之前要做的事情，因为我有 –standalone 模式的证书，所以需要 停止 nginx 服务，解除端口占用。<br>–post-hook 这个参数表示执行更新操作完成后要做的事情，这里就恢复 nginx 服务的启用</p>
+</blockquote>
+<h3 id="用专业在线工具测试你的服务器-SSL-安全性"><a href="#用专业在线工具测试你的服务器-SSL-安全性" class="headerlink" title="用专业在线工具测试你的服务器 SSL 安全性"></a>用专业在线工具测试你的服务器 SSL 安全性</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" target="_blank" rel="noopener">Qualys SSL Labs</a> 提供了全面的 SSL 安全性测试，填写你的网站域名，给自己的 HTTPS 配置打个分。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果对您有用，请博主喝杯咖啡！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://api.jybx.me/wechatpay.png" alt="七年 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/https/" rel="tag">#https</a>
+          
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/laravel-repository.html" rel="next" title="laravel-repository">
+                <i class="fa fa-chevron-left"></i> laravel-repository
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="https.html"
+           data-title="https" data-url="http://blog.jybx.me/https.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://p1.ssl.qhmsg.com/dm/110_110_100/t01bf3b413adc87ae1d.jpg"
+               alt="七年" />
+          <p class="site-author-name" itemprop="name">七年</p>
+          <p class="site-description motion-element" itemprop="description">闲情偶拾，随遇而安</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Let’s-Encrypt-简介"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Let&#x2019;s-Encrypt-&#x7B80;&#x4ECB;" class="headerlink" title="Let&#x2019;s Encrypt &#x7B80;&#x4ECB;"></a>Let&#x2019;s Encrypt &#x7B80;&#x4ECB;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置防火墙"><span class="nav-number">1.0.1.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;&#x9632;&#x706B;&#x5899;" class="headerlink" title="&#x914D;&#x7F6E;&#x9632;&#x706B;&#x5899;"></a>&#x914D;&#x7F6E;&#x9632;&#x706B;&#x5899;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-certbot-客户端"><span class="nav-number">1.0.2.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;-certbot-&#x5BA2;&#x6237;&#x7AEF;" class="headerlink" title="&#x5B89;&#x88C5; certbot &#x5BA2;&#x6237;&#x7AEF;"></a>&#x5B89;&#x88C5; certbot &#x5BA2;&#x6237;&#x7AEF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无法分配内存错误"><span class="nav-number">1.0.3.</span> <span class="nav-text"><a href="#&#x65E0;&#x6CD5;&#x5206;&#x914D;&#x5185;&#x5B58;&#x9519;&#x8BEF;" class="headerlink" title="&#x65E0;&#x6CD5;&#x5206;&#x914D;&#x5185;&#x5B58;&#x9519;&#x8BEF;"></a>&#x65E0;&#x6CD5;&#x5206;&#x914D;&#x5185;&#x5B58;&#x9519;&#x8BEF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成-HTTPS-证书"><span class="nav-number">1.0.4.</span> <span class="nav-text"><a href="#&#x751F;&#x6210;-HTTPS-&#x8BC1;&#x4E66;" class="headerlink" title="&#x751F;&#x6210; HTTPS &#x8BC1;&#x4E66;"></a>&#x751F;&#x6210; HTTPS &#x8BC1;&#x4E66;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书文件"><span class="nav-number">1.0.5.</span> <span class="nav-text"><a href="#&#x8BC1;&#x4E66;&#x6587;&#x4EF6;" class="headerlink" title="&#x8BC1;&#x4E66;&#x6587;&#x4EF6;"></a>&#x8BC1;&#x4E66;&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Nginx-上配置-TLS-SSL"><span class="nav-number">1.0.6.</span> <span class="nav-text"><a href="#&#x5728;-Nginx-&#x4E0A;&#x914D;&#x7F6E;-TLS-SSL" class="headerlink" title="&#x5728; Nginx &#x4E0A;&#x914D;&#x7F6E; TLS / SSL"></a>&#x5728; Nginx &#x4E0A;&#x914D;&#x7F6E; TLS / SSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书更新"><span class="nav-number">1.0.7.</span> <span class="nav-text"><a href="#&#x8BC1;&#x4E66;&#x66F4;&#x65B0;" class="headerlink" title="&#x8BC1;&#x4E66;&#x66F4;&#x65B0;"></a>&#x8BC1;&#x4E66;&#x66F4;&#x65B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用专业在线工具测试你的服务器-SSL-安全性"><span class="nav-number">1.0.8.</span> <span class="nav-text"><a href="#&#x7528;&#x4E13;&#x4E1A;&#x5728;&#x7EBF;&#x5DE5;&#x5177;&#x6D4B;&#x8BD5;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;-SSL-&#x5B89;&#x5168;&#x6027;" class="headerlink" title="&#x7528;&#x4E13;&#x4E1A;&#x5728;&#x7EBF;&#x5DE5;&#x5177;&#x6D4B;&#x8BD5;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668; SSL &#x5B89;&#x5168;&#x6027;"></a>&#x7528;&#x4E13;&#x4E1A;&#x5728;&#x7EBF;&#x5DE5;&#x5177;&#x6D4B;&#x8BD5;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668; SSL &#x5B89;&#x5168;&#x6027;</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七年</span>
+</div>
+
+<div class="powered-by">
+  由 <a rel="external nofollow" class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a rel="external nofollow" class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jybxmsls"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="http://api.jybx.me/particle.js"></script>
+</html>
